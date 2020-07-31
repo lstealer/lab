@@ -15,7 +15,8 @@ function App() {
       <Router>
       <Menu />
         <Switch>
-          <Route exact path="/" component={Practice} />
+          {/* <Route exact path="/" component={Practice} /> */}
+          <Route exact path="/practice" component={Practice} />
           <Route path="/solo" component={Solo} />
           <Route path="/party" component={Party} />
           <Route path="/signin" component={SignIn} />
