@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Bokor&display=swap');
+*{
+    font-family: 'Bokor', cursive;
+}
+.signup_background {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url('/image/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.dob_style{
+    outline: none;
+    color : black;
+    border: none;
+    padding: 7px 15px;
+    width : 29.2vw;
+
+}
+.text_style{
+    margin: 10px 20px 10px 0;
+    color: white;
+}
+.signup_form_bg {
+    width: 70vw;
+    height:  fit-content;
+    background-color: rgba(63, 68, 65, 0.50);
+    border-radius: 20px;
+    padding: 0px 50px 50px 50px;
+    overflow: visible;
+    position: relative;
+    left: 0; right: 0; bottom: 0; top: 0;
+    margin: auto;
+    margin-top: 100px;
+}
+.signup_form_header {
+    color: white;
+    background-image: linear-gradient(to left, #00c6ff, #0072ff);
+    margin: 0;
+    width: 300px;
+    height: 60px;
+    position: inherit;
+    left: 0px; top: -50px;
+    padding: 15px;
+    border-radius: 40px 0 40px 0 ;
+    text-align: center;
+}
+.left_box_size {
+    width: 60%;
+    display: inline-block;
+}
+.right_box_size {
+    /* background-color: white; */
+    color: white;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    width: 40%;
+    height: 100%;
+    display: inline-block;
+}
+.sign_up_button_style{
+    color: white;
+    background-image: linear-gradient(to right, #00c6ff, #0072ff);
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    margin-top: 70px;
+}
+.sign_up_button_style:focus
+{
+    outline: none;
+    border: none;
+}

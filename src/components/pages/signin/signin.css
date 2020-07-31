@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Bokor&display=swap');
+*{
+    font-family: 'Bokor', cursive;
+}
+.signin_background {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url('/image/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.signin_form_background{
+    background-color: rgba(63, 68, 65, 0.50);
+    border-radius: 20px;
+    padding: 30px;
+    right: 0; left: 0; bottom: 0; top: 150px;
+    margin: auto;
+    width: 600px;
+    height:  fit-content;
+    overflow: visible;
+    position: relative;
+}
+.signin_form_header {
+    background-image: linear-gradient(to left, #00c6ff, #0072ff);
+    width: 300px;
+    height: 60px;
+    position: inherit;
+    margin: auto;
+    left: 0; right: 0; top: -55px;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 40px 0 40px 0 ;
+    color: white;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.text_box_style{
+    color: black !important;
+    margin-top: 10px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 50px !important;
+    border: rgb(63, 68, 65, 0.3) solid 1px !important;
+    border-radius: 24px !important;
+    padding: 0px 30px !important;
+    outline: none !important;
+}
+.text_box_style:focus, 
+.text_box_style:focus
+{
+    box-shadow: 0px 2px 20px #888888;  
+}
+.text_style{
+    margin: 10px auto;
+    color: white;
+}
+/* .text_style:hover{
+    color: rgb(63, 68, 65, 0.3);
+    transition: -1s;
+    cursor: none;
+} */
+.sign_in_button_style{
+    background-image: linear-gradient(to left, #00c6ff, #0072ff);
+    width: 200px;
+    height: 50px;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+}
+.sign_in_button_style:focus
+{
+    outline: none;
+    border: none;
+}
+.to_sign_up_button_style:focus,
+.to_sign_up_button_style:hover{
+    outline: none;
+    color: #00c6ff;
+    border: rgb(0, 198, 255) solid 2px;
+}
+.to_sign_up_button_style{
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    border: rgb(0, 114, 255) solid 2px;
+    background-color: rgba(63, 68, 65, 0.05);
+    color: #0072ff;
+}
+
