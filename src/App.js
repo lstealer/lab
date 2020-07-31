@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Practice from './components/pages/practice/Practice';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Menu from './components/pages/Menu';
+import Solo from './components/pages/solo/Solo';
+import Party from './components/pages/party/Party';
+import SignIn from './components/pages/signin/SignIn';
+import SignUp from './components/pages/signup/SignUp';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+      <Menu />
+        <Switch>
+          <Route exact path="/" component={Practice} />
+          <Route path="/solo" component={Solo} />
+          <Route path="/party" component={Party} />
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+        </Switch>
+      </Router>
     </div>
   );
 }
