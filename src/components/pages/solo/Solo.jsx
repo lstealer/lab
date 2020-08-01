@@ -21,6 +21,8 @@ import {
 } from "../practice/onAction";
 import ContentView from "../practice/ContentView";
 import TypingView from "../practice/TypingView";
+import Axios from "axios";
+import { baseURL } from "../../../config/API";
 
 const initState = {
   // text: "កខគឃង",
