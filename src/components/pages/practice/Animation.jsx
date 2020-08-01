@@ -5,16 +5,16 @@ export default class Animation extends Component {
     super(props);
     this.canvasRef = React.createRef();
     this.image = new Image();
-    this.image.src = "/image/motodelivery.png";
+    this.image.src = "/image/motorcycle.png";
     this.state = {
-      swidth: 600,
-      sheight: 600,
+      swidth: 100,
+      sheight: 100,
       sx: 0,
       sy: 0,
       width: 20,
       height: 100,
       x: 0,
-      y: 23,
+      y: 40,
       percentage: 0,
     };
   }

@@ -17,7 +17,7 @@ export default (props) => {
       viewKey = "j (ដាក់ជើង)";
       break;
     case 6091:
-      viewKey = "​់ បន្តក់";
+      viewKey = "​'  (បន្តក់)";
       break;
     case 6016:
       //ក

@@ -33,6 +33,7 @@ class Practice extends Component {
     super();
     this.myRef = React.createRef();
     this.state = {
+      temp: [],
       text: "",
       // text: "កខគឃង",
       // text:
@@ -77,8 +78,9 @@ class Practice extends Component {
   async componentWillMount() {
     const text = await Axios.get(baseURL)
     this.setState({
-      text: text.data.khContent,
+      text: text.data.data.khContent,
     })
+    
     //this.props.getContents();
     console.log("Length: " + this.state.text.length);
     //console.log(this.state.text.substr(0, this.state.text.length-1));
@@ -136,8 +138,9 @@ class Practice extends Component {
             </h4>
             <Animation percent={this.state.typingPercent} />
             <h3>អត្ថបទ</h3>
+          
             <Preview text={this.state.text} userInput={this.state.userInput} />
-
+          
             <h3>សូមវាយបញ្ចូលទីនេះ</h3>
             <Form>
               <Form.Group controlId="formBasicEmail">
@@ -157,10 +160,13 @@ class Practice extends Component {
                 <Form.Text className="text-muted">
                   {/*We'll never share your email with anyone else.*/}
                 </Form.Text>
+                <h3>
                 <KeyView
                   viewKey={this.state.char[this.state.correct]}
                   nextKey={this.state.char[this.state.correct + 1]}
                 />
+                </h3>
+                
               </Form.Group>
             </Form>
           </div>

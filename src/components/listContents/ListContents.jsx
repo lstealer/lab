@@ -5,12 +5,10 @@ import { bindActionCreators } from "redux";
 import {getContents} from '../../redux/actions/contentAction/contentAction';
 
 const ListContents = (props) => {
-  props.getContent();
-  console.log(" GET CONTENTS: ", props.getContent());
-  console.log(" GET DATA: ", props.data); 
+  props.getContents();
   return (
     <div className="ListContentWrapper">
-      Test content
+      Test Contest
     </div>
     );
 };
