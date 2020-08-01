@@ -23,6 +23,7 @@ import ContentView from "../practice/ContentView";
 import TypingView from "../practice/TypingView";
 import Axios from "axios";
 import { baseURL } from "../../../config/API";
+import Animation from "../practice/Animation";
 
 const initState = {
   // text: "កខគឃង",
@@ -131,6 +132,7 @@ export default class Party extends Component {
             <h4 style={{ textAlign: "right" }}>
               <Speed sec={this.state.sec} symbols={this.state.symbols} />
             </h4>
+            <Animation percent={this.state.typingPercent} />
             <h3>អត្ថបទ</h3>
             <Preview text={this.state.text} userInput={this.state.userInput} />
             <h3>សូមវាយបញ្ចូលទីនេះ</h3>

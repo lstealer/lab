@@ -6,7 +6,7 @@ export default (props) => {
   switch (props.viewKey) {
     case 32:
       //ដកឃ្លា
-      viewKey = "Shift នឹង Space (ដកឃ្លា)";
+      viewKey = "Shift និង Space (ដកឃ្លា)";
       break;
     case 8203:
       //ចន្លោះមើលមិនឃើញ
@@ -29,11 +29,11 @@ export default (props) => {
       break;
     case 6018:
       //គ
-      viewKey = "Shift នឹង k";
+      viewKey = "Shift និង k";
       break;
     case 6019:
       //ឃ
-      viewKey = "Shift នឹង x";
+      viewKey = "Shift និង x";
       break;
     case 6020:
       //ង
@@ -49,15 +49,15 @@ export default (props) => {
       break;
     case 6023:
       //ជ
-      viewKey = "Shift នឺង c ";
+      viewKey = "Shift និង c ";
       break;
     case 6024:
       //ឈ
-      viewKey = "Shift នឺង q ";
+      viewKey = "Shift និង q ";
       break;
     case 6025:
       //ញ
-      viewKey = "Shift នឺង j ";
+      viewKey = "Shift និង j ";
       break;
     case 6026:
       //ដ
@@ -69,15 +69,15 @@ export default (props) => {
       break;
     case 6028:
       //ឌ
-      viewKey = "Shift នឺង d";
+      viewKey = "Shift និង d";
       break;
     case 6029:
       //ឍ
-      viewKey = "Shift នឺង z";
+      viewKey = "Shift និង z";
       break;
     case 6030:
       //ណ
-      viewKey = "Shift នឺង n";
+      viewKey = "Shift និង n";
       break;
     case 6031:
       //ត
@@ -89,11 +89,11 @@ export default (props) => {
       break;
     case 6033:
       //ទ
-      viewKey = "Shift នឺង t";
+      viewKey = "Shift និង t";
       break;
     case 6034:
       //ធ
-      viewKey = "Shift នឺង f";
+      viewKey = "Shift និង f";
       break;
     case 6035:
       //ន
@@ -109,11 +109,11 @@ export default (props) => {
       break;
     case 6038:
       //ព
-      viewKey = "Shift នឹង b";
+      viewKey = "Shift និង b";
       break;
     case 6039:
       //ភ
-      viewKey = "Shift នឹង p";
+      viewKey = "Shift និង p";
       break;
     case 6040:
       //ម
@@ -145,11 +145,11 @@ export default (props) => {
       break;
     case 6049:
       //ឡ
-      viewKey = "Shift នឹង L";
+      viewKey = "Shift និង L";
       break;
     case 6050:
       //អ
-      viewKey = "Shift នឹង g";
+      viewKey = "Shift និង g";
       break;
 
     //***************************************************//
@@ -163,7 +163,7 @@ export default (props) => {
       break;
     case 6072:
       //កី
-      viewKey = "Shift នឹង i ";
+      viewKey = "Shift និង i ";
       break;
     case 6073:
       //កឹ
@@ -171,7 +171,7 @@ export default (props) => {
       break;
     case 6074:
       //កឺ
-      viewKey = "Shift នឹង w ";
+      viewKey = "Shift និង w ";
       break;
     case 6075:
       //កុ
@@ -179,11 +179,11 @@ export default (props) => {
       break;
     case 6076:
       //កូ
-      viewKey = "Shift នឹង u";
+      viewKey = "Shift និង u";
       break;
     case 6077:
       //កួ
-      viewKey = "Shift នឹង y";
+      viewKey = "Shift និង y";
       break;
     case 6078:
       //កើ
@@ -191,7 +191,7 @@ export default (props) => {
       break;
     case 6079:
       //កឿ
-      viewKey = "Shift នឹង [";
+      viewKey = "Shift និង [";
       break;
     case 6080:
       //កៀ
@@ -203,11 +203,11 @@ export default (props) => {
       break;
     case 6082:
       //កែ
-      viewKey = "Shift នឹង e";
+      viewKey = "Shift និង e";
       break;
     case 6083:
       //កៃ
-      viewKey = "Shift នឹង s";
+      viewKey = "Shift និង s";
       break;
     case 6084:
       //កោ
@@ -215,15 +215,15 @@ export default (props) => {
       break;
     case 6085:
       //កៅ
-      viewKey = "Shift នឹង o";
+      viewKey = "Shift និង o";
       break;
     case 6086:
       //កំ
-      viewKey = "Shift នឹង m";
+      viewKey = "Shift និង m";
       break;
     case 6087:
       //កះ
-      viewKey = "Shift នឹង h";
+      viewKey = "Shift និង h";
       break;
 
     //************************************************* */
@@ -233,15 +233,15 @@ export default (props) => {
       break;
     case 6054:
       //ឦ
-      viewKey = "alt gr នឹង i";
+      viewKey = "alt gr និង i";
       break;
     case 6055:
       //ឧ
-      viewKey = "Shift នឹង ]";
+      viewKey = "Shift និង ]";
       break;
     case 6057:
       //ឩ
-      viewKey = "alt gr នឹង [";
+      viewKey = "alt gr និង [";
       break;
     case 6058:
       //ឳ
@@ -249,11 +249,11 @@ export default (props) => {
       break;
     case 6060:
       //ឬ
-      viewKey = " Shift នឹង r​ ";
+      viewKey = " Shift និង r​ ";
       break;
     case 6059:
       //ឫ
-      viewKey = "alt gr នឹង r ​";
+      viewKey = "alt gr និង r ​";
       break;
     case 6062:
       //ឮ
@@ -261,19 +261,19 @@ export default (props) => {
       break;
     case 6061:
       //ឭ
-      viewKey = "Shift នឹង | ​";
+      viewKey = "Shift និង | ​";
       break;
     case 6063:
       //ឯ
-      viewKey = "​alt gr នឹង e";
+      viewKey = "​alt gr និង e";
       break;
     case 6065:
       //ឱ
-      viewKey = "​alt gr នឹង o";
+      viewKey = "​alt gr និង o";
       break;
     case 6067:
       //ឳ
-      viewKey = "​alt gr នឹង ]";
+      viewKey = "​alt gr និង ]";
       break;
     case 6066:
       //ឲ
@@ -283,23 +283,23 @@ export default (props) => {
     //********************************************** */
     case 6093:
       //ក៍
-      viewKey = "Shift នឹង 6";
+      viewKey = "Shift និង 6";
       break;
     case 6096:
       //ក័
-      viewKey = "Shift នឹង 7";
+      viewKey = "Shift និង 7";
       break;
     case 6095:
       //ក៏
-      viewKey = "Shift នឹង 8";
+      viewKey = "Shift និង 8";
       break;
     case 6092:
       //ក៌
-      viewKey = "Shift នឹង -";
+      viewKey = "Shift និង -";
       break;
     case 6089:
       //ក៉
-      viewKey = "Shift នឹង '";
+      viewKey = "Shift និង '";
       break;
     case 6090:
       //ក៊
@@ -313,25 +313,25 @@ export default (props) => {
       break;
     case 6101:
       //៕
-      viewKey = "Shift នឹង .";
+      viewKey = "Shift និង .";
       break;
     case 37:
       //%
-      viewKey = "Shift នឹង ​%";
+      viewKey = "Shift និង ​%";
       break;
 
     case 33:
       //!
-      viewKey = "Shift នឹង 1";
+      viewKey = "Shift និង 1";
       break;
 
     case 6103:
       //ៗ
-      viewKey = "Shift នឹង 2 ";
+      viewKey = "Shift និង 2 ";
       break;
     case 6107:
       //៛
-      viewKey = "Shift នឹង 4 ";
+      viewKey = "Shift និង 4 ";
       break;
     case 171:
       //«
@@ -339,23 +339,23 @@ export default (props) => {
       break;
     case 187:
       //»
-      viewKey = "Shift នឹង ~";
+      viewKey = "Shift និង ~";
       break;
     case 8364:
       //€
-      viewKey = "alt gr នឹង 5";
+      viewKey = "alt gr និង 5";
       break;
     case 6105:
       //៙
-      viewKey = "alt gr នឹង 6";
+      viewKey = "alt gr និង 6";
       break;
     case 6106:
       //៚
-      viewKey = "alt gr នឹង 7";
+      viewKey = "alt gr និង 7";
       break;
     case 215:
       //×
-      viewKey = "alt gr នឹង +";
+      viewKey = "alt gr និង +";
       break;
 
     case 45:
@@ -364,59 +364,59 @@ export default (props) => {
       break;
     case 43:
       //+
-      viewKey = "Shift នឹង + e";
+      viewKey = "Shift និង + e";
       break;
 
     case 6097:
       //៑
-      viewKey = "alt gr នឹង​ 3​ ";
+      viewKey = "alt gr និង 3​ ";
       break;
     case 40:
       //(
-      viewKey = "Shift នឹង 9​ ";
+      viewKey = "Shift និង 9​ ";
       break;
     case 41:
       //)
-      viewKey = "Shift នឹង 0​ ";
+      viewKey = "Shift និង 0​ ";
       break;
     case 6094:
       //៎
-      viewKey = "alt gr នឹង​​ = ";
+      viewKey = "alt gr និង = ";
       break;
     case 61:
       //=
-      viewKey = "Shift នឹង = ";
+      viewKey = "Shift និង = ";
       break;
 
     //*************************************************** */
 
     case 6088:
       //ៈ
-      viewKey = "alt gr នឹង​ ' ";
+      viewKey = "alt gr និង ' ";
       break;
     case 6102:
       //៖
-      viewKey = "alt gr នឹង​ ;";
+      viewKey = "alt gr និង ;";
       break;
     case 64:
       //@
-      viewKey = "alt gr នឹង​ 2 ";
+      viewKey = "alt gr និង 2 ";
       break;
     case 36:
       //$
-      viewKey = "alt gr នឹង​ 4";
+      viewKey = "alt gr និង 4";
       break;
     case 42:
       //*
-      viewKey = "alt gr នឹង​ 8 ";
+      viewKey = "alt gr និង 8 ";
       break;
     case 123:
       //{
-      viewKey = "alt gr នឹង​ 9 ";
+      viewKey = "alt gr និង 9 ";
       break;
     case 125:
       //}
-      viewKey = "alt gr នឹង​ 0 ";
+      viewKey = "alt gr និង 0 ";
       break;
 
     //***************************************************** */
@@ -476,19 +476,19 @@ export default (props) => {
     if (props.nextKey == "6086" || props.nextKey == "6087") {
       if (props.viewKey == "6070" && props.nextKey == "6086") {
         //ស្រះ ាំ
-        viewKey = "Shift នឹង a";
+        viewKey = "Shift និង a";
       } else if (props.viewKey == "6075" && props.nextKey == "6086") {
         //ស្រះ  ុំ
         viewKey = ",";
       } else if (props.viewKey == "6075" && props.nextKey == "6087") {
         //ស្រះ ​ ុះ
-        viewKey = "Shift នឹង ,";
+        viewKey = "Shift និង ,";
       } else if (props.viewKey == "6081" && props.nextKey == "6087") {
         //ស្រះ  េះ
-        viewKey = "Shift នឹង v";
+        viewKey = "Shift និង v";
       } else if (props.viewKey == "6084" && props.nextKey == "6087") {
         //ស្រះ  ោះ
-        viewKey = "Shift នឹង ;";
+        viewKey = "Shift និង ;";
       }
     }
   }
