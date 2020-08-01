@@ -67,9 +67,13 @@ export default class Party extends Component {
   countCorrectSymbols = countCorrectSymbols.bind(this);
   onConfirm = onConfirm.bind(this);
   handleScrollToElement = handleScrollToElement.bind(this);
- 
-  componentWillMount() {
-    // const text= await Axios.get(baseURL)
+
+  async componentWillMount() {
+    const text = await Axios.get(baseURL);
+    this.setState({
+      text: text.data.data.khContent,
+    });
+
     //this.props.getContents();
     console.log("Length: " + this.state.text.length);
     //console.log(this.state.text.substr(0, this.state.text.length-1));
@@ -79,7 +83,7 @@ export default class Party extends Component {
     });
     //clearInterval(this.myInterval);
   }
-  
+
   componentDidMount() {
     this.focusInput.focus();
     this.myInterval = setInterval(() => {
@@ -121,13 +125,12 @@ export default class Party extends Component {
         <div className="row">
           <div className="col-md-10">
             ប្រកួតក្នុងក្រុម​ <input type="text" placeholder="URL" />
-                    <input type="button" value="Copy" />
+            <input type="button" value="Copy" />
             <h4 style={{ textAlign: "right" }}>
-            <Speed sec={this.state.sec} symbols={this.state.symbols} />
+              <Speed sec={this.state.sec} symbols={this.state.symbols} />
             </h4>
             <h3>អត្ថបទ</h3>
             <Preview text={this.state.text} userInput={this.state.userInput} />
-
             <h3>សូមវាយបញ្ចូលទីនេះ</h3>
             <Form>
               <Form.Group controlId="formBasicEmail">
@@ -143,30 +146,31 @@ export default class Party extends Component {
                   onChange={this.onChange}
                   onKeyDown={this.onKeyDown}
                   onKeyUp={this.onKeyUp}
-
                 />
                 <Form.Text className="text-muted">
                   {/*We'll never share your email with anyone else.*/}
                 </Form.Text>
-                {/* <KeyView
+                <h3>
+                  <KeyView
                   viewKey={this.state.char[this.state.correct]}
                   nextKey={this.state.char[this.state.correct + 1]}
-                /> */}
+                />
+                </h3>
               </Form.Group>
             </Form>
           </div>
           <div className="col-md-2">
-           <ContentView 
-            myTime={myTime} 
-            color={this.state.color} 
-            isSpecChar={this.state.isSpecChar}
-            char={this.state.char}
-            correct={this.state.correct}
-            specChar1={this.state.specChar1}
-            specChar2={this.state.specChar2}
-            inCorrect={this.state.inCorrect}
-            accuracy={this.state.accuracy}
-           />
+            <ContentView
+              myTime={myTime}
+              color={this.state.color}
+              isSpecChar={this.state.isSpecChar}
+              char={this.state.char}
+              correct={this.state.correct}
+              specChar1={this.state.specChar1}
+              specChar2={this.state.specChar2}
+              inCorrect={this.state.inCorrect}
+              accuracy={this.state.accuracy}
+            />
           </div>
         </div>
 

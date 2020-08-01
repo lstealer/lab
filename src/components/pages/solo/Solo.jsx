@@ -68,8 +68,12 @@ export default class Solo extends Component {
   onConfirm = onConfirm.bind(this);
   handleScrollToElement = handleScrollToElement.bind(this);
 
-  componentWillMount() {
-    // const text= await Axios.get(baseURL)
+  async componentWillMount() {
+    const text = await Axios.get(baseURL)
+    this.setState({
+      text: text.data.data.khContent,
+    })
+    
     //this.props.getContents();
     console.log("Length: " + this.state.text.length);
     //console.log(this.state.text.substr(0, this.state.text.length-1));
@@ -147,10 +151,13 @@ export default class Solo extends Component {
                 <Form.Text className="text-muted">
                   {/*We'll never share your email with anyone else.*/}
                 </Form.Text>
-                {/* <KeyView
+                <h3>
+                  <KeyView
                   viewKey={this.state.char[this.state.correct]}
                   nextKey={this.state.char[this.state.correct + 1]}
-                /> */}
+                />
+                </h3>
+                
               </Form.Group>
             </Form>
           </div>
