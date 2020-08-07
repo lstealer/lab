@@ -12,6 +12,8 @@ export default (props) => {
                     padding: "5px 15px",
                     borderRadius: "15px",
                     border: "1px solid lightgray",
+                    fontFamily: "Suwannaphum",
+                    fontSize: "20px"
                   }}
                   onContextMenu={props.onPrevent}
                   //onDragStart={this.onPrevent.bind(this)}

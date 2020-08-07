@@ -496,12 +496,14 @@ export default (props) => {
   return (
     <div
       style={{
-        border: "1px solid lightgray",
+        border: "2px solid rgb(2,254,82)",
+        backgroundColor: "rgba(2,254,82,0.1)",
         borderRadius: "15px",
         width: "50%",
-        height: "60px",
-        padding: "15px 0",
+        height: "80px",
+        padding: "20px 0",
         margin: "10px auto",
+        fontFamily: '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
       }}
     >
       {viewKey}

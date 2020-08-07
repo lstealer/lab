@@ -1,0 +1,36 @@
+td{
+    padding-right: 10px;
+}
+
+.footer-bg {
+    width : 100%;
+    height : fit-content;
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    background-color: rgb(50, 50, 50);
+}
+.image-style{
+    width: 98%;
+    height: 170px;
+    margin: 40px;
+   
+}
+.footer-header{
+    margin: 40px 0 10px 0;
+    color: #0072ff;
+    font-weight: bold;
+    text-align: left;
+}
+.footer-text{
+    color: white;
+    text-align: left;
+}
+.bottom-text{
+    width: 100%;
+    color: white;
+    margin: 0;
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgb(40, 40, 40);
+}

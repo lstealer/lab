@@ -7,22 +7,22 @@ export default (props) => {
         <div className="container">
              <div className="row">
              <div className="col-md-12">
-                <h4>Dara</h4>
+                <h4><b><span>Dara</span></b></h4>
               </div>
-              <div className="col-md-5">
-                <h5>• រយៈពេល​ ៖ {props.mainTime}</h5>
-                <h5>• ល្បឿន​ (ពាក្យ/នាទី) ៖ {props.wpm}</h5>
+              <div className="col-md-4">
+                <h5>• រយៈពេល​ (នាទី : វិនាទី) ៖ <span>{props.mainTime}</span></h5>
+                <h5>• ល្បឿន​ (ពាក្យ / នាទី) ៖ <span>{props.wpm}</span></h5>
               </div>
               <div className="col-md-3">
-                <h5>• សរុប ៖ {props.total}</h5>
-                <h5>• សុក្រឹតភាព ៖ {props.myAccuracy} %</h5>
+                <h5>• សរុប ៖ <span>{props.total}</span></h5>
+                <h5>• សុក្រឹតភាព ៖ <span>{props.myAccuracy} %</span></h5>
               </div>
               <div className="col-md-2">
-                <h5>• ត្រូវ ៖ {props.index}</h5>
-                <h5>• ខុស ៖ {props.inCorrect}</h5>
+                <h5>• ត្រូវ ៖ <span>{props.index}</span></h5>
+                <h5>• ខុស ៖ <span>{props.inCorrect}</span></h5>
               </div>
               <div
-                className="col-md-2"
+                className="col-md-3"
                 style={{
                   display: "flex",
                   alignContent: "center",
@@ -30,15 +30,15 @@ export default (props) => {
                   marginBottom: "25px",
                 }}
               >
-                <Button
-                  style={{ width: "200px" }}
+                <Button className="button-style2"
+                  style={{ width: "300px" }}
                   variant="primary"
                   type="button"
                   onClick={()=>{
                     window.location.reload();
                   }}
                 >
-                  Restart
+                  ចាប់ផ្តើមម្តងទៀត
                 </Button>
               </div>
             </div>

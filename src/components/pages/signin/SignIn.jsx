@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
-import './signin.css'
-import {Form, Button} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import React, { Component } from "react";
+import { Form, Button } from "react-bootstrap";
+import "./Signin.css";
+import { Link } from "react-router-dom";
 
-export default class SignIn extends Component {
+export default class Signin extends Component {
+
   constructor(){
     super();
     this.state = {
@@ -20,46 +21,56 @@ export default class SignIn extends Component {
   formOnClick = (evt) => {
     console.log(this.state)
   }
-    render() {
-        return (
-          <div className="signin_background">
-            <div className="signin_form_background">
-              <div className="signin_form_header">ចូលគណនី</div>
-              <Form>
-                <center>
-                    {/* <Form.Control type="email" placeholder="អ៊ីមែល" className="text_box_style"/> */}
-                    <input
-                      name = 'email'
-                      className="text_box_style"
-                      type="text"
+
+  render() {
+    return (
+      <div className="page">
+        <div className="row m-0 p-0">
+          <div className="col-md-12 column-style">
+            <div className="signin-container">
+              <h3 className="signin-header">ចូលគណនី</h3>
+              <center>
+                <Form>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Control
+                      className="rounded-pill"
+                      type="email"
                       placeholder="អ៊ីមែល"
-                      onChange={this.handleOnChange}
                     />
-                    {/* <Form.Control type="password" placeholder="លេខសំងាត់" className='text_box_style' /> */}
-                    <input
-                      name='password'
-                      className="text_box_style"
+                    {/* <Form.Text className="text-muted">
+                                        We'll never share your email with anyone else.
+                                    </Form.Text> */}
+                  </Form.Group>
+
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Control
+                      className="rounded-pill"
                       type="password"
                       placeholder="លេខសម្ងាត់"
-                      onChange={this.handleOnChange}
                     />
-
-                  <p className="text_style">ភ្លេចលេខសម្ងាត់?</p>
-                  <button 
-                    className="sign_in_button_style"
-                    onClick={this.formOnClick}
-                  >ចូល</button>
-
-                  <p className="text_style">មិនទាន់មានគណនី</p>
-                  <Link to={'signup'}>
-                    <button type="" className="to_sign_up_button_style">
-                        ចុះឈ្មោះឥលូវនេះ
-                    </button>
+                  </Form.Group>
+                  <p className="text-style">ភ្លេចលេខសម្ងាត់?</p>
+                  <Button 
+                      className='rounded-pill button-style'
+                      variant="primary" 
+                      type="submit"
+                  >ចូល</Button>
+                  <p className="text-style">មិនទាន់មានគណនី</p>
+                  <Link to={"signup"}>
+                    <Button
+                      className="rounded-pill signup-button-style"
+                      variant="primary"
+                      type="submit"
+                    >
+                      ចុះឈ្មោះឥលូវនេះ
+                    </Button>
                   </Link>
-                </center>
-              </Form>
+                </Form>
+              </center>
             </div>
           </div>
-        );
-    }
+        </div>
+      </div>
+    );
+  }
 }

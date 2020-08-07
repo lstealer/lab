@@ -5,16 +5,16 @@ export default class Animation extends Component {
     super(props);
     this.canvasRef = React.createRef();
     this.image = new Image();
-    this.image.src = "/image/motorcycle.png";
+    this.image.src = "/image/mymoto.png";
     this.state = {
-      swidth: 100,
+      swidth: 120,
       sheight: 100,
       sx: 0,
       sy: 0,
-      width: 20,
+      width: 30,
       height: 100,
       x: 0,
-      y: 40,
+      y: 20,
       percentage: 0,
     };
   }
@@ -34,9 +34,10 @@ export default class Animation extends Component {
     const ctx = canvas.getContext("2d");
     ctx.save();
 
-    ctx.fillStyle = "#FFFFFF";
+    // ctx.fillStyle = "rgba(0, 0, 0, 0)";
+    ctx.fillStyle = "rgba(0, 0, 0, 1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#1b1c25";
+    ctx.fillStyle = "rgb(92,204,131)";
     ctx.fillRect(1, 119, canvas.width, 5);
     //console.log("===>", frame.percentage);
     position = Math.floor(
