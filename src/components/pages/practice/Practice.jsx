@@ -162,7 +162,7 @@ class Practice extends Component {
               <h2
                 style={{
                   fontFamily: "Nokora",
-                  fontWeight: "bold",
+                  // fontWeight: "bold",
                   color: "rgb(0,119,245)",
                 }}
               >
@@ -175,7 +175,7 @@ class Practice extends Component {
               <h2
                 style={{
                   fontFamily: "Nokora",
-                  fontWeight: "bold",
+                  // fontWeight: "bold",
                   marginTop: "25px",
                 }}
               >
@@ -202,7 +202,7 @@ class Practice extends Component {
                   <h2
                     style={{
                       fontFamily: "Nokora",
-                      fontWeight: "bold",
+                      // fontWeight: "bold",
                       marginTop: "25px",
                       color: "rgb(2,254,82)",
                     }}

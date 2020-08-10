@@ -8,13 +8,13 @@ export default class Animation extends Component {
     this.image.src = "/image/mymoto.png";
     this.state = {
       swidth: 120,
-      sheight: 100,
+      sheight: 120,
       sx: 0,
       sy: 0,
       width: 30,
       height: 100,
       x: 0,
-      y: 20,
+      y: 35,
       percentage: 0,
     };
   }
@@ -33,9 +33,10 @@ export default class Animation extends Component {
     const canvas = this.canvasRef.current;
     const ctx = canvas.getContext("2d");
     ctx.save();
-
-    // ctx.fillStyle = "rgba(0, 0, 0, 0)";
-    ctx.fillStyle = "rgba(0, 0, 0, 1)";
+    //Clear Old Image in Canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "rgba(0, 0, 0, 0)";
+    // ctx.fillStyle = "rgba(0, 0, 0, 1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "rgb(92,204,131)";
     ctx.fillRect(1, 119, canvas.width, 5);

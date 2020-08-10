@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "./Home.css";
 import "../../../App.css";
+import {Link} from 'react-router-dom';
 
 export default (props) => {
   return (
@@ -23,8 +24,9 @@ export default (props) => {
                 <span>wpm (Words Per Minute)</span>
               </p>
               <p> ១​ ពាក្យ​ = ៥ តួរអក្សរ ឫ ៥ ក្តារចុច</p>
-
+              <Link to="/practice">
               <button className="button-style1">​ចាប់ផ្តើម</button>
+              </Link>
             </Card.Body>
           </Card>
         </div>
@@ -42,8 +44,9 @@ export default (props) => {
               <p>ជាមួយ អ្នកមិនស្គាល់</p>
               <p>៤ នាក់ផ្សេងទៀត</p>
               <p>ដើម្បីដណ្តើមជ័យលាភី</p>
-
-              <button className="button-style1">​ចាប់ផ្តើម</button>
+              <Link to="/solo">
+               <button className="button-style1">​ចាប់ផ្តើម</button>
+              </Link>
             </Card.Body>
           </Card>
         </div>
@@ -61,8 +64,9 @@ export default (props) => {
               <p>ជាមួយ មិត្តភក្តិក្នុងក្រុម</p>
               <p>តាមរយៈតំណភ្ជាប់</p>
               <p>ដើម្បីដណ្តើមជ័យលាភី</p>
-
-              <button className="button-style1">​ចាប់ផ្តើម</button>
+              <Link to="/party">
+               <button className="button-style1">​ចាប់ផ្តើម</button>
+              </Link>
             </Card.Body>
           </Card>
         </div>

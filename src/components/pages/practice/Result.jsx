@@ -10,7 +10,7 @@ export default (props) => {
                 <h4><b><span>Dara</span></b></h4>
               </div>
               <div className="col-md-4">
-                <h5>• រយៈពេល​ (នាទី : វិនាទី) ៖ <span>{props.mainTime}</span></h5>
+                <h5>• រយៈពេល​ (នាទី<span>:</span>វិនាទី) ៖ <span>{props.mainTime}</span></h5>
                 <h5>• ល្បឿន​ (ពាក្យ / នាទី) ៖ <span>{props.wpm}</span></h5>
               </div>
               <div className="col-md-3">

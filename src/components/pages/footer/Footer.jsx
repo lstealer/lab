@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import "./Footer.css";
+import {Link} from 'react-router-dom';
 
 export default class Footer extends Component {
   render() {
     return (
-      <div className="row m-0">
-        <div className="col-mg-12 m-0">
+      <div className="row m-0" style={{width: "100%"}}>
+        <div className="col-md-12 m-0 p-0">
           <div className="footer">
             <div className="footer-bg">
               <div className="row m-0">
@@ -28,13 +29,15 @@ export default class Footer extends Component {
                     </span>
                   </p>
                 </div>
-                <div className="col-md-2">
+                <div className="col-md-2" style={{textAlign: "left"}}>
                   <h5 className="footer-header">
                     <span>ANY PROBLEM ?</span>
                   </h5>
+                  <Link to="/report">
                   <Button variant="danger" style={{width: "170px", borderRadius: "25px"}}>
                     <b><span>Report Us</span></b>
                   </Button>
+                  </Link>
                 </div>
                 <div className="col-md-4" style={{paddingLeft: "75px"}}>
                   <h5 className="footer-header">
@@ -85,7 +88,7 @@ export default class Footer extends Component {
                     </table>
                 </div>
               </div>
-              <p className="bottom-text">
+              <p className="bottom-text" id="contact">
                 <span>Copyright &copy; 2020. All Rights Reserved.</span>
               </p>
             </div>
