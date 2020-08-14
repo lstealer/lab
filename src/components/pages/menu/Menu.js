@@ -26,7 +26,13 @@ export default class Menu extends Component {
               <Nav.Link as={Link} to="/" className="mymenu">ទំព័រដើម</Nav.Link>
               <Nav.Link as={Link} to="/about" className="mymenu">អំពីយើង</Nav.Link>
               <Nav.Link href="#contact" className="mymenu">ទំនាក់ទំនង</Nav.Link>
-              <Nav.Link as={Link} to="/language" className="mymenu">ភាសា</Nav.Link>
+              <Nav.Link as={Link} to="/language" className="mymenu dropdown">
+                <h6 className="dropbtn">ភាសា</h6>
+                <div className="dropdown-content">
+                  <p>ខ្មែរ</p>
+                  <p>អង់គ្លេស</p>
+                </div>
+                </Nav.Link>
               <Nav.Link as={Link} to="/account" className="mymenu">គណនី</Nav.Link>
               <Nav.Link as={Link} to="/account" style={{ padding: "0", paddingRight: "15px"}}>
               <img style={{ width: "35px"}} src={User}></img>

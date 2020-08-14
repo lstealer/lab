@@ -54,8 +54,8 @@ class Solo extends Component {
       specChar2: "",
       isSpecChar: true,
       accuracy: 0,
-      time: 100,
-      mainTime: 100,
+      time: 1,
+      mainTime: 1,
       isResult: false,
       isAlert: false,
       typingPercent: 0,
@@ -162,7 +162,7 @@ class Solo extends Component {
               <h2
                 style={{
                   fontFamily: "Nokora",
-                  fontWeight: "bold",
+                  // fontWeight: "bold",
                   color: "rgb(0,119,245)",
                 }}
               >
@@ -175,7 +175,7 @@ class Solo extends Component {
               <h2
                 style={{
                   fontFamily: "Nokora",
-                  fontWeight: "bold",
+                  // fontWeight: "bold",
                   marginTop: "25px",
                 }}
               >
@@ -202,7 +202,7 @@ class Solo extends Component {
                   <h2
                     style={{
                       fontFamily: "Nokora",
-                      fontWeight: "bold",
+                      // fontWeight: "bold",
                       marginTop: "25px",
                       color: "rgb(2,254,82)",
                     }}

@@ -54,14 +54,18 @@ class Practice extends Component {
       specChar2: "",
       isSpecChar: true,
       accuracy: 0,
-      time: 100,
-      mainTime: 100,
+      time: 1,
+      mainTime: 1,
       isResult: false,
       isAlert: false,
       typingPercent: 0,
       correct: 0,
       inCorrect: 0,
       n: 0,
+      author: "",
+      title: "",
+      desc: "",
+      bookImage: "",
     };
   }
   onPrevent = onPrevent.bind(this);
@@ -77,9 +81,16 @@ class Practice extends Component {
   handleScrollToElement = handleScrollToElement.bind(this);
 
   async componentWillMount() {
-    const text = await Axios.get(baseURL);
+    const text = await Axios.get(baseURL)
+      // .then((result) => {})
+      // .catch((error) => {});
+
     this.setState({
       text: text.data.data.khContent,
+      title: text.data.data.title,
+      author: text.data.data.author,
+      desc: text.data.data.description,
+      bookImage: text.data.data.image,
     });
 
     //this.props.getContents();
@@ -113,7 +124,12 @@ class Practice extends Component {
 
   render() {
     let alertResult = (
-      <SweetAlert success title="បានបញ្ចប់!" onConfirm={this.onConfirm.bind(this)} className="sweet-alert">
+      <SweetAlert
+        success
+        title="បានបញ្ចប់!"
+        onConfirm={this.onConfirm.bind(this)}
+        className="sweet-alert"
+      >
         សូមចុច <span>OK</span> ដើម្បីពិនិត្យលទ្ធផល!
       </SweetAlert>
     );
@@ -257,6 +273,10 @@ class Practice extends Component {
             myAccuracy={myAccuracy}
             index={this.state.correct}
             inCorrect={this.state.inCorrect}
+            title={this.state.title}
+            author={this.state.author}
+            desc={this.state.desc}
+            bookImage={this.state.bookImage}
           />
           <p ref={this.myRef}></p>
         </div>

@@ -501,9 +501,10 @@ export default (props) => {
         borderRadius: "15px",
         width: "50%",
         height: "80px",
-        padding: "20px 0",
+        padding: "10px 0",
         margin: "10px auto",
         fontFamily: '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+        fontSize: "40px",
       }}
     >
       {viewKey}

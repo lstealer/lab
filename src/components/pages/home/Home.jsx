@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import MyCarousel from "./MyCarousel";
 import MyCard from "./MyCard";
 import MyTable from "./table/MyTable";
+import Axios from "axios";
+import {topPlayersURL} from '../../../config/API';
 
 const header = [
   "លរ",
@@ -12,7 +14,28 @@ const header = [
 ];
 
 export default class Home extends Component {
+  constructor(){
+    super();
+    this.state = {
+      content: [],
+    }
+  }
+  async componentWillMount() {
+    await Axios.get(topPlayersURL)
+      .then(result=>{
+      
+        this.setState({
+          content: result.data.data,
+        })
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+      console.log("result; ",this.state.content)
+  }
+
   render() {
+    
     return (
       <div>
         <MyCarousel />
@@ -25,8 +48,8 @@ export default class Home extends Component {
         <div className="title-background">
           <h3>កំពូលតារាងទាំង ១០</h3>
         </div>
-        <div style={{margin: "-50px 100px 0"}}>
-          <MyTable header={header} />
+        <div style={{ margin: "-50px 100px 0" }}>
+          <MyTable header={header} content={this.state.content}/>
         </div>
       </div>
     );
