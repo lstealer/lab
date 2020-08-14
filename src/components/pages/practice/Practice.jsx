@@ -81,7 +81,7 @@ class Practice extends Component {
   handleScrollToElement = handleScrollToElement.bind(this);
 
   async componentWillMount() {
-    const text = await Axios.get(baseURL)
+    const text = await Axios.get(baseURL);
       // .then((result) => {})
       // .catch((error) => {});
 

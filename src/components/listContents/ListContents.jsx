@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import {getContents} from '../../redux/actions/contentAction/contentAction';
 
 const ListContents = (props) => {
+  
   props.getContents();
   return (
     <div className="ListContentWrapper">
