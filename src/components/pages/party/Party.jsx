@@ -7,6 +7,7 @@ import "../../../App.css";
 import SweetAlert from "react-bootstrap-sweetalert";
 import Result from "../practice/Result";
 import "../practice/Practice.css";
+import "./Party.css";
 import {
   onPrevent,
   onFocus,
@@ -137,11 +138,21 @@ class Party extends Component {
       <div>
         <div className="row">
           <div className="mode-title col-md-4">
-            <h2 style={{paddingLeft: "80px"}}>ប្រកួតក្នុងក្រុម</h2>
+            <h2 style={{ paddingLeft: "80px" }}>ប្រកួតក្នុងក្រុម</h2>
           </div>
-          <div className="col-md-8" style={{marginTop: "90px"}}>
-            <input type="text"/>
-            <button><span>Copy</span></button>
+          <div className="col-md-5" style={{ marginTop: "90px" }}>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Control
+                className="rounded-pill"
+                type="password"
+                placeholder="តំណភ្ជាប់"
+              />
+            </Form.Group>
+          </div>
+          <div className="col-md-3" style={{ marginTop: "90px" }}>
+            <button className="btn-copy">
+              <span>Copy</span>
+            </button>
           </div>
         </div>
 
@@ -211,7 +222,7 @@ class Party extends Component {
                   <Form.Text className="text-muted">
                     {/*We'll never share your email with anyone else.*/}
                   </Form.Text>
-                  <h2
+                  {/* <h2
                     style={{
                       fontFamily: "Nokora",
                       // fontWeight: "bold",
@@ -231,7 +242,7 @@ class Party extends Component {
                     <span style={{ color: "rgb(177,177,177" }}>
                       NiDA - V 1.0 - 1/9/05 (Window OS)
                     </span>
-                  </h6>
+                  </h6> */}
                 </Form.Group>
               </Form>
             </div>

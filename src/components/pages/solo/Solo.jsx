@@ -199,7 +199,7 @@ class Solo extends Component {
                   <Form.Text className="text-muted">
                     {/*We'll never share your email with anyone else.*/}
                   </Form.Text>
-                  <h2
+                  {/* <h2
                     style={{
                       fontFamily: "Nokora",
                       // fontWeight: "bold",
@@ -208,18 +208,18 @@ class Solo extends Component {
                     }}
                   >
                     គំរូក្តារចុច
-                  </h2>
-                  <h3>
+                  </h2> */}
+                  {/* <h3>
                     <KeyView
                       viewKey={this.state.char[this.state.correct]}
                       nextKey={this.state.char[this.state.correct + 1]}
                     />
-                  </h3>
-                  <h6>
+                  </h3> */}
+                  {/* <h6>
                     <span style={{ color: "rgb(177,177,177" }}>
                       NiDA - V 1.0 - 1/9/05 (Window OS)
                     </span>
-                  </h6>
+                  </h6> */}
                 </Form.Group>
               </Form>
             </div>

@@ -35,7 +35,7 @@ export default class Signin extends Component {
                     <Form.Control
                       className="rounded-pill"
                       type="email"
-                      placeholder="អ៊ីមែល"
+                      placeholder="អុីមែល"
                     />
                     {/* <Form.Text className="text-muted">
                                         We'll never share your email with anyone else.
@@ -62,7 +62,7 @@ export default class Signin extends Component {
                       variant="primary"
                       type="submit"
                     >
-                      ចុះឈ្មោះឥលូវនេះ
+                      ចុះឈ្មោះឥឡូវនេះ
                     </Button>
                   </Link>
                 </Form>
