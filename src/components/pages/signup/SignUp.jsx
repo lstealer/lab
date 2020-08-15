@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "./Signup.css";
+import Axios from "axios";
 
 export default class Signup extends Component {
   constructor() {
@@ -36,6 +37,23 @@ export default class Signup extends Component {
   formOnClick = (evt) => {
     console.log(this.state);
   };
+
+  addUser(){
+    alert("Add User!");
+    const user = {
+      name: "roth",
+      gender: true,
+      dob: "2020-01-01",
+      email: "roth@gmail.com",
+      password: "123",
+    }
+
+    Axios.post("http://localhost:8080/kh-racer/v1/user",user).then(result=>{
+      console.log("Result: ",result);
+    }).catch(error=>{
+      console.log("Error: ",error);
+    })
+  }
 
   render() {
     return (
@@ -136,6 +154,7 @@ export default class Signup extends Component {
                             className='rounded-pill button-style'
                             variant="primary" 
                             type="submit"
+                            onClick={this.addUser.bind(this)}
                         >ចុះឈ្មោះ</Button>
                     </div>
                   </center>
