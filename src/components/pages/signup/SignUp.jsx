@@ -38,21 +38,23 @@ export default class Signup extends Component {
     console.log(this.state);
   };
 
-  addUser(){
+  addUser() {
     alert("Add User!");
     const user = {
-      name: "roth",
+      name: "bora",
       gender: true,
       dob: "2020-01-01",
-      email: "roth@gmail.com",
+      email: "bora@gmail.com",
       password: "123",
-    }
+    };
 
-    Axios.post("http://localhost:8080/kh-racer/v1/user",user).then(result=>{
-      console.log("Result: ",result);
-    }).catch(error=>{
-      console.log("Error: ",error);
-    })
+   Axios.post("/user", user)
+      .then((result) => {
+        console.log("Result: ", result);
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
   }
 
   render() {
@@ -146,16 +148,18 @@ export default class Signup extends Component {
                 <div className="col-md-4 m-0 p-0">
                   <center>
                     <div className="button-position">
-                        <h1 className="text-color">KH Racer</h1>
-                        <h1 className="text-color">សូមស្វាគមន៍</h1>
+                      <h1 className="text-color">KH Racer</h1>
+                      <h1 className="text-color">សូមស្វាគមន៍</h1>
                     </div>
-                    <div className="button-position" >
-                        <Button 
-                            className='rounded-pill button-style'
-                            variant="primary" 
-                            type="submit"
-                            onClick={this.addUser.bind(this)}
-                        >ចុះឈ្មោះ</Button>
+                    <div className="button-position">
+                      <Button
+                        className="rounded-pill button-style"
+                        variant="primary"
+                        type="button"
+                        onClick={this.addUser.bind(this)}
+                      >
+                        ចុះឈ្មោះ
+                      </Button>
                     </div>
                   </center>
                 </div>

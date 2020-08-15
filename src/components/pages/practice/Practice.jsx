@@ -144,6 +144,21 @@ class Practice extends Component {
 
     let myAccuracy = `${this.state.accuracy.toFixed(2)}`;
     let wpm = <Speed sec={this.state.sec} symbols={this.state.symbols} />;
+
+    if(this.state.isResult){
+      const myHistory = {
+        userId: 3,
+        wpm: 100,
+        rank: 1,
+        contentId: 1,
+        accuracy: 99,
+      }
+      Axios.post("/history",myHistory).then(result=>{
+        console.log("#Result: ", result)
+      }).catch(error=>{
+        console.log("#Error: ", error)
+      })
+    }
     return (
       <div>
         <div className="mode-title">
