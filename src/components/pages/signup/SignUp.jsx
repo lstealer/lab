@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "./Signup.css";
 import Axios from "axios";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class Signup extends Component {
   constructor() {
@@ -37,24 +38,36 @@ export default class Signup extends Component {
   formOnClick = (evt) => {
     console.log(this.state);
   };
-
+ 
   addUser() {
     alert("Add User!");
+    
     const user = {
-      name: "bora",
-      gender: true,
-      dob: "2020-01-01",
-      email: "bora@gmail.com",
-      password: "123",
+      name: this.state.name,
+      gender: this.state.gender == "Male" ? true : false,
+      dob: new Date(Date.parse(this.state.dob)).toISOString().slice(0,10),
+      email: this.state.email,
+      password: this.state.password,
     };
 
-   Axios.post("/user", user)
-      .then((result) => {
-        console.log("Result: ", result);
-      })
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
+    // const user = {
+    //   name: "kaka",
+    //   gender: false,
+    //   dob: "2020-01-01",
+    //   email: "kaka@kaka.com",
+    //   password: "123",
+    // };
+
+    //console.log(" User: ", user);
+    //INSERT: add new user into database;
+
+     Axios.post("/user", user)
+        .then((result) => {
+          console.log("Result: ", result);
+        })
+        .catch((error) => {
+          console.log("Error: ", error);
+        });
   }
 
   render() {
@@ -110,7 +123,7 @@ export default class Signup extends Component {
                         onChange={this.dateOnChange}
                         placeholderText="ថ្ងៃ ខែ​ ឆ្នាំកំណើត"
                         dateFormat="dd/MMM/yyyy"
-                        showYearDropdown
+                        // showYearDropdown
                       />
                     </Form.Group>
 
@@ -118,7 +131,7 @@ export default class Signup extends Component {
                       <Form.Control
                         name="email"
                         type="email"
-                        placeholder="បញ្ចូលអ៊ីមែល"
+                        placeholder="បញ្ចូលអុីមែល"
                         className="rounded-pill"
                         onChange={this.handleChange}
                       />
@@ -155,7 +168,7 @@ export default class Signup extends Component {
                       <Button
                         className="rounded-pill button-style"
                         variant="primary"
-                        type="button"
+                        type="submit"
                         onClick={this.addUser.bind(this)}
                       >
                         ចុះឈ្មោះ

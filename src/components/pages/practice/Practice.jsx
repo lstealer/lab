@@ -54,8 +54,8 @@ class Practice extends Component {
       specChar2: "",
       isSpecChar: true,
       accuracy: 0,
-      time: 1,
-      mainTime: 1,
+      time: 10,
+      mainTime: 10,
       isResult: false,
       isAlert: false,
       typingPercent: 0,
@@ -66,6 +66,7 @@ class Practice extends Component {
       title: "",
       desc: "",
       bookImage: "",
+      contentId: 0,
     };
   }
   onPrevent = onPrevent.bind(this);
@@ -81,20 +82,21 @@ class Practice extends Component {
   handleScrollToElement = handleScrollToElement.bind(this);
 
   async componentWillMount() {
-    const text = await Axios.get(baseURL);
-      // .then((result) => {})
-      // .catch((error) => {});
-
-    this.setState({
-      text: text.data.data.khContent,
-      title: text.data.data.title,
-      author: text.data.data.author,
-      desc: text.data.data.description,
-      bookImage: text.data.data.image,
-    });
+    await Axios.get(baseURL)
+      .then((result) => {
+        console.log(result)
+        this.setState({
+          text: result.data.data.khContent,
+          title: result.data.data.title,
+          author: result.data.data.author,
+          desc: result.data.data.description,
+          bookImage: result.data.data.image,
+          contentId: result.data.data.id,
+        });
+      })
+      .catch((error) => {});
 
     //this.props.getContents();
-    console.log("Length: " + this.state.text.length);
     //console.log(this.state.text.substr(0, this.state.text.length-1));
     this.state.text.split("").forEach((char) => {
       //console.log(char);
@@ -144,20 +146,23 @@ class Practice extends Component {
 
     let myAccuracy = `${this.state.accuracy.toFixed(2)}`;
     let wpm = <Speed sec={this.state.sec} symbols={this.state.symbols} />;
-
+  
     if(this.state.isResult){
       const myHistory = {
         userId: 3,
-        wpm: 100,
+        wpm: parseInt((this.state.symbols/5) /(this.state.sec/60)) ,
         rank: 1,
-        contentId: 1,
-        accuracy: 99,
+        contentId: parseInt(`${this.state.contentId}`),
+        accuracy: parseFloat(`${myAccuracy}`),
       }
-      Axios.post("/history",myHistory).then(result=>{
-        console.log("#Result: ", result)
-      }).catch(error=>{
-        console.log("#Error: ", error)
-      })
+
+      //INSERT: add result into database;
+
+      // Axios.post("/history",myHistory).then(result=>{
+      //   console.log("#Result: ", result)
+      // }).catch(error=>{
+      //   console.log("#Error: ", error)
+      // })
     }
     return (
       <div>

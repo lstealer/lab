@@ -1,11 +1,11 @@
 .page{
-    margin:0;
+    /* margin:0;
     padding:0;
     width: 100%;
     height: 100vh;
     background-image: url('/image/background.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 }
 .column-style{
     width: 100%;
@@ -15,10 +15,11 @@
 }
 .dob-style{
     outline: none;
-    color : black;
+    color : #000000 !important;
     border: none;
     padding: 7px 15px;
     width : 28.5vw;
+    /* font-family: "Arial"; */
 }
 .text-style{
     margin: 10px 20px 10px 0;
