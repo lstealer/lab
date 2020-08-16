@@ -67,6 +67,8 @@ class Practice extends Component {
       desc: "",
       bookImage: "",
       contentId: 0,
+      countDown: 5,
+      colorFlash: 10,
     };
   }
   onPrevent = onPrevent.bind(this);
@@ -84,7 +86,7 @@ class Practice extends Component {
   async componentWillMount() {
     await Axios.get(baseURL)
       .then((result) => {
-        console.log(result)
+        console.log(result);
         this.setState({
           text: result.data.data.khContent,
           title: result.data.data.title,
@@ -107,19 +109,32 @@ class Practice extends Component {
 
   componentDidMount() {
     this.focusInput.focus();
-    this.myInterval = setInterval(() => {
+    this.myColorFlash = setInterval(()=>{
+      this.setState((prev)=>({
+        colorFlash: prev.colorFlash - 1,
+      }))
+    },500)
+    this.myCountDown = setInterval(() => {
       this.setState((prev) => ({
-        time: prev.time - 1,
+        countDown: prev.countDown - 1,
       }));
-      if (this.state.time == 0) {
-        this.setState({
-          //mainTime: this.state.mainTime - this.state.time,
-          finished: true,
-          isAlert: true,
-        });
-        clearInterval(this.myInterval);
-        clearInterval(this.interval);
-        //window.scrollBy(0, 200);
+      if (this.state.countDown == 0) {
+        clearInterval(this.myCountDown);
+        this.myInterval = setInterval(() => {
+          this.setState((prev) => ({
+            time: prev.time - 1,
+          }));
+          if (this.state.time == 0) {
+            this.setState({
+              //mainTime: this.state.mainTime - this.state.time,
+              finished: true,
+              isAlert: true,
+            });
+            clearInterval(this.myInterval);
+            clearInterval(this.interval);
+            //window.scrollBy(0, 200);
+          }
+        }, 1000);
       }
     }, 1000);
   }
@@ -146,15 +161,15 @@ class Practice extends Component {
 
     let myAccuracy = `${this.state.accuracy.toFixed(2)}`;
     let wpm = <Speed sec={this.state.sec} symbols={this.state.symbols} />;
-  
-    if(this.state.isResult){
+
+    if (this.state.isResult) {
       const myHistory = {
         userId: 3,
-        wpm: parseInt((this.state.symbols/5) /(this.state.sec/60)) ,
+        wpm: parseInt(this.state.symbols / 5 / (this.state.sec / 60)),
         rank: 1,
         contentId: parseInt(`${this.state.contentId}`),
         accuracy: parseFloat(`${myAccuracy}`),
-      }
+      };
 
       //INSERT: add result into database;
 
@@ -168,6 +183,30 @@ class Practice extends Component {
       <div>
         <div className="mode-title">
           <h2>អនុវត្ត</h2>
+          <div
+            style={{
+              display: this.state.countDown == 0 ? "none" : "block",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(0,0,0,0.75)",
+              position: "absolute",
+              zIndex: "999",
+              margin: "0",
+              padding: "0",
+              left: "0",
+              top: "0",
+            }}
+          >
+            <span
+              style={{
+                display: this.state.countDown == 0 ? "none" : "block",
+                boxShadow: this.state.colorFlash % 2 == 0 ? "0 0 10px 10px #ff1010c7" : "0 0 10px 10px rgba(0,0,0,0)",
+              }}
+              className="count-down"
+            >
+              {this.state.countDown}
+            </span>
+          </div>
         </div>
         <div className="container my-practice">
           <div className="row">
