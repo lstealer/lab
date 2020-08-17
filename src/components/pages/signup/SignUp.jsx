@@ -30,7 +30,9 @@ export default class Signup extends Component {
 
   genderOnChange = (evt) => {
     console.log("====>", evt.target.checked);
-    this.setState({ gender: evt.target.value });
+    this.setState({ gender: evt.target.value },()=>{
+      
+    });
   };
 
   validForm = () => {};
@@ -38,36 +40,36 @@ export default class Signup extends Component {
   formOnClick = (evt) => {
     console.log(this.state);
   };
- 
+
   addUser() {
-    alert("Add User!");
-    
-    const user = {
-      name: this.state.name,
-      gender: this.state.gender == "Male" ? true : false,
-      dob: new Date(Date.parse(this.state.dob)).toISOString().slice(0,10),
-      email: this.state.email,
-      password: this.state.password,
-    };
-
-    // const user = {
-    //   name: "kaka",
-    //   gender: false,
-    //   dob: "2020-01-01",
-    //   email: "kaka@kaka.com",
-    //   password: "123",
-    // };
-
-    //console.log(" User: ", user);
-    //INSERT: add new user into database;
-
-     Axios.post("/user", user)
+    // console.log(" Gender: ", this.state.gender);
+    if (
+      this.state.name !== "" &&
+      this.state.gender !== "" &&
+      this.state.dob !== "" &&
+      this.state.email !== "" &&
+      this.state.password !== ""
+    ) {
+     
+      const user = {
+        name: this.state.name,
+        gender: this.state.gender == "Male" ? true : false,
+        dob: new Date(Date.parse(this.state.dob)).toISOString().slice(0, 10),
+        email: this.state.email,
+        password: this.state.password,
+      };
+      //console.log(" User: ", user);
+      //INSERT: add new user into database;
+      Axios.post("/kh-racer/v1/user", user)
         .then((result) => {
           console.log("Result: ", result);
         })
         .catch((error) => {
           console.log("Error: ", error);
         });
+    }else{
+      alert("Pleas input all the field!")
+    }
   }
 
   render() {

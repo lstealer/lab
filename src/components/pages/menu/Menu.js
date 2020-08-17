@@ -6,6 +6,23 @@ import "./Menu.css";
 import { Link } from "react-router-dom";
 
 export default class Menu extends Component {
+  constructor(){
+    super();
+    this.state = {
+      email: "",
+    }
+  }
+
+  componentWillMount(){
+    let myUser = JSON.parse(localStorage.getItem("signin"));
+    console.log("EMAIL: ", myUser.email);
+    if(myUser && myUser.email){
+      this.setState({
+        email: myUser.email,
+      })
+    }
+    
+  }
   render() {
     return (
       <div>
@@ -72,7 +89,7 @@ export default class Menu extends Component {
                     ></img>
                     </div>
                     
-                    <p className="profile-username">គណនី</p>
+                    <p className="profile-username">{this.state.email}</p>
                     <Nav.Link as={Link} to="/signin">
                     <button className="view-profile">ចូលគណនី</button>
                     </Nav.Link>

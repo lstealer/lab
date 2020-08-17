@@ -44,6 +44,8 @@ export default class Animation extends Component {
     position = Math.floor(
       ((canvas.width - frame.width) / 100) * frame.percentage
     );
+
+    ctx.imageSmoothingEnabled = true;
     ctx.drawImage(
       this.image,
       frame.sx,

@@ -2,15 +2,49 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./Signin.css";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 export default class Signin extends Component {
 
   constructor(){
     super();
     this.state = {
-      email : '',
-      password : ''
+      isSignin: false,
+      jwtToken: "",
     };
+  }
+
+  componentWillMount(){
+    let myUser = JSON.parse(localStorage.getItem("signin"));
+    if(myUser && myUser.isSignin){
+      this.setState({
+        isSignin: true,
+        jwtToken: myUser.jwtToken,
+      })
+    }
+  }
+
+  onSignIn(){ 
+    
+    const user = {
+      email: "koko@gmail.com",
+      pwd: "123",
+    }
+    Axios.post("/authenticate", user).then(result=>{
+     // console.log(result.data.data.jwtToken);
+      localStorage.setItem("signin", JSON.stringify({ 
+        isSignin: true,
+        jwtToken: result.data.data.jwtToken,
+        email: user.email,
+      }))
+      console.log("Stored account: ",localStorage.getItem("signin"));
+      this.setState({
+        isSignin: true,
+        jwtToken: result.data.data.jwtToken,
+      })
+    }).catch(error => {
+      console.log(error);
+    })
   }
 
   handleOnChange = (evt) => {
@@ -53,7 +87,8 @@ export default class Signin extends Component {
                   <Button 
                       className='rounded-pill button-style'
                       variant="primary" 
-                      type="submit"
+                      type="button"
+                      onClick={this.onSignIn.bind(this)}
                   >ចូល</Button>
                   <p className="text-style">មិនទាន់មានគណនី</p>
                   <Link to={"signup"}>
@@ -61,6 +96,7 @@ export default class Signin extends Component {
                       className="rounded-pill signup-button-style"
                       variant="primary"
                       type="submit"
+                      
                     >
                       ចុះឈ្មោះឥឡូវនេះ
                     </Button>
