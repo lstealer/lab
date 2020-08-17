@@ -28,6 +28,7 @@ export default (props) => {
               fontSize: "20px",
               color: "black",
               transition: "all 1s ease-out",
+              lineHeight: "30px",
             }}
           >
             {item}

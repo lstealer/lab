@@ -16,6 +16,10 @@ export default (props) => {
       //ដាក់ជើង
       viewKey = "j (ដាក់ជើង)";
       break;
+    case 44:
+      //ក្បៀស
+      viewKey = "Alt gr និង ,";
+      break;
     case 6091:
       viewKey = "​'  (បន្តក់)";
       break;
@@ -233,7 +237,7 @@ export default (props) => {
       break;
     case 6054:
       //ឦ
-      viewKey = "alt gr និង i";
+      viewKey = "Alt gr និង i";
       break;
     case 6055:
       //ឧ
@@ -241,7 +245,7 @@ export default (props) => {
       break;
     case 6057:
       //ឩ
-      viewKey = "alt gr និង [";
+      viewKey = "Alt gr និង [";
       break;
     case 6058:
       //ឳ
@@ -253,7 +257,7 @@ export default (props) => {
       break;
     case 6059:
       //ឫ
-      viewKey = "alt gr និង r ​";
+      viewKey = "Alt gr និង r ​";
       break;
     case 6062:
       //ឮ
@@ -265,15 +269,15 @@ export default (props) => {
       break;
     case 6063:
       //ឯ
-      viewKey = "​alt gr និង e";
+      viewKey = "​Alt gr និង e";
       break;
     case 6065:
       //ឱ
-      viewKey = "​alt gr និង o";
+      viewKey = "Alt gr និង o";
       break;
     case 6067:
       //ឳ
-      viewKey = "​alt gr និង ]";
+      viewKey = "Alt gr និង ]";
       break;
     case 6066:
       //ឲ
@@ -343,19 +347,19 @@ export default (props) => {
       break;
     case 8364:
       //€
-      viewKey = "alt gr និង 5";
+      viewKey = "Alt gr និង 5";
       break;
     case 6105:
       //៙
-      viewKey = "alt gr និង 6";
+      viewKey = "Alt gr និង 6";
       break;
     case 6106:
       //៚
-      viewKey = "alt gr និង 7";
+      viewKey = "Alt gr និង 7";
       break;
     case 215:
       //×
-      viewKey = "alt gr និង +";
+      viewKey = "Alt gr និង +";
       break;
 
     case 45:
@@ -369,7 +373,7 @@ export default (props) => {
 
     case 6097:
       //៑
-      viewKey = "alt gr និង 3​ ";
+      viewKey = "Alt gr និង 3​ ";
       break;
     case 40:
       //(
@@ -381,7 +385,7 @@ export default (props) => {
       break;
     case 6094:
       //៎
-      viewKey = "alt gr និង = ";
+      viewKey = "Alt gr និង = ";
       break;
     case 61:
       //=
@@ -392,73 +396,73 @@ export default (props) => {
 
     case 6088:
       //ៈ
-      viewKey = "alt gr និង ' ";
+      viewKey = "Alt gr និង ' ";
       break;
     case 6102:
       //៖
-      viewKey = "alt gr និង ;";
+      viewKey = "Alt gr និង ;";
       break;
     case 64:
       //@
-      viewKey = "alt gr និង 2 ";
+      viewKey = "Alt gr និង 2 ";
       break;
     case 36:
       //$
-      viewKey = "alt gr និង 4";
+      viewKey = "Alt gr និង 4";
       break;
     case 42:
       //*
-      viewKey = "alt gr និង 8 ";
+      viewKey = "Alt gr និង 8 ";
       break;
     case 123:
       //{
-      viewKey = "alt gr និង 9 ";
+      viewKey = "Alt gr និង 9 ";
       break;
     case 125:
       //}
-      viewKey = "alt gr និង 0 ";
+      viewKey = "Alt gr និង 0 ";
       break;
 
     //***************************************************** */
     case 6112:
       //០
-      viewKey = "០";
+      viewKey = "0";
       break;
     case 6113:
       //១
-      viewKey = "១";
+      viewKey = "1";
       break;
     case 6114:
       //២
-      viewKey = "២";
+      viewKey = "2";
       break;
     case 6115:
       //៣
-      viewKey = "៣";
+      viewKey = "3";
       break;
     case 6116:
       //៤
-      viewKey = "៤";
+      viewKey = "4";
       break;
     case 6117:
       //៥
-      viewKey = "៥";
+      viewKey = "5";
       break;
     case 6118:
       //៦
-      viewKey = "៦";
+      viewKey = "6";
       break;
     case 6119:
       //៧
-      viewKey = "៧";
+      viewKey = "7";
       break;
     case 6120:
       //៨
-      viewKey = "៨";
+      viewKey = "8";
       break;
     case 6121:
       //៩
-      viewKey = "៩";
+      viewKey = "9";
       break;
     //*************************************************** */
 
@@ -499,11 +503,12 @@ export default (props) => {
         border: "2px solid rgb(2,254,82)",
         backgroundColor: "rgba(2,254,82,0.1)",
         borderRadius: "15px",
-        width: "50%",
+        width: "75%",
         height: "80px",
-        padding: "10px 0",
+        padding: "14px 0",
         margin: "10px auto",
-        fontFamily: '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+        fontFamily:
+          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
         fontSize: "40px",
       }}
     >

@@ -54,8 +54,8 @@ class Practice extends Component {
       specChar2: "",
       isSpecChar: true,
       accuracy: 0,
-      time: 10,
-      mainTime: 10,
+      time: 1000,
+      mainTime: 1000,
       isResult: false,
       isAlert: false,
       typingPercent: 0,
@@ -94,7 +94,39 @@ class Practice extends Component {
           desc: result.data.data.description,
           bookImage: result.data.data.image,
           contentId: result.data.data.id,
+        },()=>{
+          this.myColorFlash = setInterval(()=>{
+            this.setState((prev)=>({
+              colorFlash: prev.colorFlash - 1,
+            }))
+          },500)
+          this.myCountDown = setInterval(() => {
+            this.setState((prev) => ({
+              countDown: prev.countDown - 1,
+            }));
+            if (this.state.countDown == 0) {
+              clearInterval(this.myCountDown);
+              this.focusInput.focus();
+              this.myInterval = setInterval(() => {
+                this.setState((prev) => ({
+                  time: prev.time - 1,
+                }));
+                if (this.state.time == 0) {
+                  this.setState({
+                    //mainTime: this.state.mainTime - this.state.time,
+                    finished: true,
+                    isAlert: true,
+                  });
+                  clearInterval(this.myInterval);
+                  clearInterval(this.interval);
+                  //window.scrollBy(0, 200);
+                }
+              }, 1000);
+            }
+          }, 1000);
         });
+
+        
       })
       .catch((error) => {});
 
@@ -108,35 +140,38 @@ class Practice extends Component {
   }
 
   componentDidMount() {
-    this.focusInput.focus();
-    this.myColorFlash = setInterval(()=>{
-      this.setState((prev)=>({
-        colorFlash: prev.colorFlash - 1,
-      }))
-    },500)
-    this.myCountDown = setInterval(() => {
-      this.setState((prev) => ({
-        countDown: prev.countDown - 1,
-      }));
-      if (this.state.countDown == 0) {
-        clearInterval(this.myCountDown);
-        this.myInterval = setInterval(() => {
-          this.setState((prev) => ({
-            time: prev.time - 1,
-          }));
-          if (this.state.time == 0) {
-            this.setState({
-              //mainTime: this.state.mainTime - this.state.time,
-              finished: true,
-              isAlert: true,
-            });
-            clearInterval(this.myInterval);
-            clearInterval(this.interval);
-            //window.scrollBy(0, 200);
-          }
-        }, 1000);
-      }
-    }, 1000);
+  
+    //Slow when use in this DidMount;
+
+    // this.myColorFlash = setInterval(()=>{
+    //   this.setState((prev)=>({
+    //     colorFlash: prev.colorFlash - 1,
+    //   }))
+    // },500)
+    // this.myCountDown = setInterval(() => {
+    //   this.setState((prev) => ({
+    //     countDown: prev.countDown - 1,
+    //   }));
+    //   if (this.state.countDown == 0) {
+    //     clearInterval(this.myCountDown);
+    //     this.focusInput.focus();
+    //     this.myInterval = setInterval(() => {
+    //       this.setState((prev) => ({
+    //         time: prev.time - 1,
+    //       }));
+    //       if (this.state.time == 0) {
+    //         this.setState({
+    //           //mainTime: this.state.mainTime - this.state.time,
+    //           finished: true,
+    //           isAlert: true,
+    //         });
+    //         clearInterval(this.myInterval);
+    //         clearInterval(this.interval);
+    //         //window.scrollBy(0, 200);
+    //       }
+    //     }, 1000);
+    //   }
+    // }, 1000);
   }
 
   render() {

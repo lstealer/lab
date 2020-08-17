@@ -89,7 +89,7 @@ export default (props) => {
         }}
       >
         <h4>
-          <span style={{fontWeight: "bold"}}>{props.accuracy.toFixed(2)} %</span>
+          <span style={{fontWeight: "bold"}}>{props.accuracy.toFixed(2)}%</span>
         </h4>
       </div>
     </div>

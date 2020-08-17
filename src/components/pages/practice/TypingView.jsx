@@ -9,11 +9,12 @@ export default (props) => {
                   style={{
                     width: "100%",
                     rows: "2",
-                    padding: "5px 15px",
+                    padding: "10px 15px",
                     borderRadius: "15px",
                     border: "1px solid lightgray",
                     fontFamily: "Suwannaphum",
-                    fontSize: "20px"
+                    fontSize: "20px",
+                    resize: 'none',
                   }}
                   onContextMenu={props.onPrevent}
                   //onDragStart={this.onPrevent.bind(this)}
@@ -37,6 +38,7 @@ export default (props) => {
                   onChange={props.onChange}
                   onKeyDown={props.onKeyDown}
                   onKeyUp={props.onKeyUp}
+                 
                 ></textarea>
         </div>
     )
