@@ -24,6 +24,7 @@ class Home extends Component {
     };
   }
   componentWillMount() {
+    
     this.props.getTopPlayers();
     console.log("TOP PLAYERS DATA: ", this.props.data.data);
     if (this.props.data.length !== 0) {

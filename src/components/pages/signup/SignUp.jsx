@@ -68,7 +68,7 @@ export default class Signup extends Component {
           console.log("Error: ", error);
         });
     }else{
-      alert("Pleas input all the field!")
+      alert("Please input all the fields!")
     }
   }
 

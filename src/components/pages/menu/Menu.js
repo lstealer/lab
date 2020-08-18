@@ -6,23 +6,31 @@ import "./Menu.css";
 import { Link } from "react-router-dom";
 
 export default class Menu extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       email: "",
+      name: "",
+      isSignin: false,
+    };
+  }
+
+  componentWillMount() {
+    let myUser = JSON.parse(localStorage.getItem("signin"));
+    if (myUser && myUser.email) {
+      this.setState({
+        // email: myUser.email,
+        name: myUser.name,
+        isSignin: true,
+      });
     }
   }
 
-  componentWillMount(){
-    let myUser = JSON.parse(localStorage.getItem("signin"));
-    console.log("EMAIL: ", myUser.email);
-    if(myUser && myUser.email){
-      this.setState({
-        email: myUser.email,
-      })
-    }
-    
+  onSignout() {
+    localStorage.clear();
+    window.location.reload();
   }
+
   render() {
     return (
       <div>
@@ -60,38 +68,62 @@ export default class Menu extends Component {
                   <p>អង់គ្លេស</p>
                 </div>
               </Nav.Link>
-              <Nav.Link className="mymenu">គណនី</Nav.Link>
-              <Nav
-                style={{ padding: "0", paddingRight: "15px" }}
-              >
+              <Nav.Link className="mymenu" style={{ marginTop: "-1px" }}>
+                <b>
+                  <span>{this.state.isSignin ? this.state.name : "គណនី"}</span>
+                </b>
+              </Nav.Link>
+              <Nav style={{ padding: "0", paddingRight: "15px" }}>
                 <div className="profile-dropdown">
-                  <img style={{
-                        width: "35px",
-                        height: "35px",
-                        borderRadius: "100px",
-                        // border: "4px solid #d3d3d3",
-                        objectFit: 'cover',
-                      }} src={User}></img>
+                  <img
+                    style={{
+                      width: "35px",
+                      height: "35px",
+                      borderRadius: "100px",
+                      // border: "4px solid #d3d3d3",
+                      objectFit: "cover",
+                    }}
+                    src={User}
+                  ></img>
                   <div className="profile-content">
-                    <Nav.Link as={Link} to="/signup" style={{ margin: "10px 10px 0 0", textAlign: "right", color: "#000000" }}>
-                      ចុះឈ្មោះ?
-                    </Nav.Link>
-                    <div >
-                    <img style={{
-                        width: "160px",
-                        height: "160px",
-                        margin: "15px 50px",
-                        borderRadius: "100px",
-                        border: "4px solid #d3d3d3",
-                        objectFit: 'cover',
+                    <Nav.Link
+                      onClick={this.state.isSignin?this.onSignout.bind(this):""}
+                      as={Link}
+                      to={this.state.isSignin ? "/" : "/signup"}
+                      style={{
+                        margin: "10px 10px 0 0",
+                        textAlign: "right",
+                        color: "#000000",
                       }}
-                      src={User}
-                    ></img>
+                    >
+                      {this.state.isSignin ? "ចេញពីគណនី!" : "ចុះឈ្មោះ?"}
+                    </Nav.Link>
+                    <div>
+                      <img
+                        style={{
+                          width: "160px",
+                          height: "160px",
+                          margin: "15px 50px",
+                          borderRadius: "100px",
+                          border: "4px solid #d3d3d3",
+                          objectFit: "cover",
+                        }}
+                        src={User}
+                      ></img>
                     </div>
-                    
-                    <p className="profile-username">{this.state.email}</p>
-                    <Nav.Link as={Link} to="/signin">
-                    <button className="view-profile">ចូលគណនី</button>
+
+                    <p className="profile-username">
+                      <span>
+                        {this.state.isSignin ? this.state.name : "គណនី"}
+                      </span>
+                    </p>
+                    <Nav.Link
+                      as={Link}
+                      to={this.state.isSignin ? "/profile" : "/signin"}
+                    >
+                      <button className="view-profile">
+                        {this.state.isSignin ? "មើលគណនី" : "ចូលគណនី"}
+                      </button>
                     </Nav.Link>
                   </div>
                 </div>
