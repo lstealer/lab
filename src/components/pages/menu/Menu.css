@@ -4,6 +4,10 @@
     color: white !important;
 }
 
+.main-menu{
+  background-color: #000000cc !important;
+}
+
 .mytitle{
     font-family: "Verdana";
     font-weight: bold;
@@ -51,7 +55,7 @@
   }
   /* Change color of dropdown links on hover */
   .dropdown-content p:hover {
-    background-color: #f1f1f1;
+    background-color: #e4e4e4;
     border-radius: 10px;
   }
   

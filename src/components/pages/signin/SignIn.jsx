@@ -56,7 +56,7 @@ export default class Signin extends Component {
           isSignin: true,
           jwtToken: encrypt.toString(),
         })
-        //window.location.reload();
+        window.location.reload();
       }).catch(error => {
         console.log(error);
       })

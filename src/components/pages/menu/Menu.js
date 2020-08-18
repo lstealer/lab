@@ -27,7 +27,7 @@ export default class Menu extends Component {
   }
 
   onSignout() {
-    localStorage.clear();
+    localStorage.removeItem("signin");
     window.location.reload();
   }
 
@@ -35,12 +35,12 @@ export default class Menu extends Component {
     return (
       <div>
         <Navbar
-          className="fixed-top"
+          className="fixed-top main-menu"
           collapseOnSelect
           expand="lg"
           bg="dark"
           variant="dark"
-          style={{ opacity: "0.9", width: "100vw" }}
+          style={{ width: "100vw" }}
         >
           <Link to="/">
             <img style={{ width: "40px", marginRight: "5px" }} src={Logo}></img>
@@ -82,6 +82,7 @@ export default class Menu extends Component {
                       borderRadius: "100px",
                       // border: "4px solid #d3d3d3",
                       objectFit: "cover",
+                  
                     }}
                     src={User}
                   ></img>
@@ -89,14 +90,14 @@ export default class Menu extends Component {
                     <Nav.Link
                       onClick={this.state.isSignin?this.onSignout.bind(this):""}
                       as={Link}
-                      to={this.state.isSignin ? "/" : "/signup"}
+                      to={this.state.isSignin ? "" : "/signup"}
                       style={{
                         margin: "10px 10px 0 0",
                         textAlign: "right",
                         color: "#000000",
                       }}
                     >
-                      {this.state.isSignin ? "ចេញពីគណនី!" : "ចុះឈ្មោះ?"}
+                      <p>{this.state.isSignin ? "ចេញពីគណនី!" : "ចុះឈ្មោះ?"}</p>
                     </Nav.Link>
                     <div>
                       <img
