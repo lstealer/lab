@@ -56,7 +56,7 @@ export default class Footer extends Component {
                         </td>
                         <td>
                           <span>
-                            No.12, St. 323, Borung Kak II <br />
+                            No.12, St. 323, Boeung Kak II <br />
                             Commune, Toul Kork District, <br />
                             Phnom Penh Cambodia
                           </span>

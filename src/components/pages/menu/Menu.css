@@ -8,9 +8,17 @@
   background-color: #000000cc !important;
 }
 
+.mymenu:hover{
+  color: #0072ff !important;
+}
+
 .mytitle{
     font-family: "Verdana";
     font-weight: bold;
+}
+
+.mytitle:hover{
+  color: #0072ff !important;
 }
 
 /* Style The Dropdown Button */
@@ -118,4 +126,8 @@
 
   .view-profile:hover{
     background-image: linear-gradient(to left, #00c6ff, #0072ff);
+  }
+
+  .signout-and-signup:hover{
+    color: #0072ff !important;
   }

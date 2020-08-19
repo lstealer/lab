@@ -43,7 +43,7 @@ export default class Menu extends Component {
           style={{ width: "100vw" }}
         >
           <Link to="/">
-            <img style={{ width: "40px", marginRight: "5px" }} src={Logo}></img>
+            <img style={{ width: "40px", marginRight: "5px"}} src={Logo}></img>
           </Link>
           <Navbar.Brand as={Link} to="/" className="mytitle">
             KH Racer
@@ -97,7 +97,7 @@ export default class Menu extends Component {
                         color: "#000000",
                       }}
                     >
-                      <p>{this.state.isSignin ? "ចេញពីគណនី!" : "ចុះឈ្មោះ?"}</p>
+                      <p className="signout-and-signup">{this.state.isSignin ? "ចេញពីគណនី!" : "ចុះឈ្មោះ?"}</p>
                     </Nav.Link>
                     <div>
                       <img
