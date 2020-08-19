@@ -30,8 +30,8 @@ export default class MyTable extends Component {
                 <span>{j + 1}</span>
               </td>
               {items.map((item, k) => (
-                <td key={k} className="row-bg-color">
-                  <span>{item}</span>
+                <td key={k} className="row-bg-color" style={{textAlign: k==0?"left":""}}>
+                  <span>{k==1?`${item} wpm`:k==2?`${item}%`:k==3?`${item.slice(0,10)} នៅ ${item.slice(11,16)}`:item}</span>
                 </td>
               ))}
             </tr>

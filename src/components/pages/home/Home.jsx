@@ -26,12 +26,12 @@ class Home extends Component {
   componentWillMount() {
     
     this.props.getTopPlayers();
-    console.log("TOP PLAYERS DATA: ", this.props.data.data);
-    if (this.props.data.length !== 0) {
-      this.setState({
-        content: this.props.data.data,
-      });
-    }
+    // console.log("TOP PLAYERS DATA: ", this.props.data.data);
+    // if (this.props.data.length !== 0) {
+    //   this.setState({
+    //     content: this.props.data.data,
+    //   });
+    // }
 
     // await Axios.get(topPlayersURL)
     //   .then(result=>{
@@ -47,6 +47,14 @@ class Home extends Component {
   }
 
   render() {
+    console.log("TOP PLAYERS DATA: ", this.props.data.data);
+    if(this.state.content.length == 0){
+      if (this.props.data.length !== 0) {
+        this.setState({
+          content: this.props.data.data,
+        });
+      }
+    }
     return (
       <div>
         <MyCarousel />

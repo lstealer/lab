@@ -153,6 +153,10 @@ export default class Signup extends Component {
                   <Form>
                     <Form.Group controlId="formBasicEmail">
                       <Form.Control
+                       style={{
+                        fontFamily:
+                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                      }}
                         name="name"
                         type="text"
                         placeholder="បញ្ចូលឈ្មោះ"
@@ -188,6 +192,10 @@ export default class Signup extends Component {
                       />
 
                       <DatePicker
+                       style={{
+                        fontFamily:
+                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                      }}
                         className="rounded-pill dob-style"
                         name="dob"
                         selected={this.state.dob}
@@ -200,6 +208,10 @@ export default class Signup extends Component {
 
                     <Form.Group controlId="formBasicEmail">
                       <Form.Control
+                       style={{
+                        fontFamily:
+                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                      }}
                         name="email"
                         type="email"
                         value={this.state.email || ""}
@@ -211,6 +223,10 @@ export default class Signup extends Component {
 
                     <Form.Group controlId="formBasicPassword">
                       <Form.Control
+                       style={{
+                        fontFamily:
+                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                      }}
                         name="password"
                         type="password"
                         value={this.state.password}
@@ -222,6 +238,10 @@ export default class Signup extends Component {
 
                     <Form.Group controlId="formBasicPassword">
                       <Form.Control
+                       style={{
+                        fontFamily:
+                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                      }}
                         name="confirmed"
                         type="password"
                         value={this.state.confirmed || ""}

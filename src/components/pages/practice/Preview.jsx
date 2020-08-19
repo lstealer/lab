@@ -25,7 +25,7 @@ export default (props) => {
             style={{
               background: `${color}`,
               fontFamily: "Suwannaphum",
-              fontSize: "20px",
+              fontSize: "18px",
               color: "black",
               transition: "all 1s ease-out",
               lineHeight: "30px",

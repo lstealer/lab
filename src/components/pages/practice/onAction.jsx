@@ -16,9 +16,9 @@ export const onRestart = function(e){
 }
 
 export const onKeyDown = function(e){
-    console.log(
-        "KeyDown: " + String.fromCharCode(e.keyCode) + ":" + e.target.value
-      );
+    // console.log(
+    //     "KeyDown: " + String.fromCharCode(e.keyCode) + ":" + e.target.value
+    //   );
       this.setState({
         oldInput: e.target.value,
       });
@@ -59,8 +59,8 @@ export const setTimer = function() {
   }
 
   export const onFinish = function(userInput) {
-    console.log("Userinput: " + userInput);
-    console.log("Text: " + this.state.text);
+    //console.log("Userinput: " + userInput);
+    console.log("Text: " + this.state.text.length);
     if (userInput === this.state.text) {
       clearInterval(this.interval);
       clearInterval(this.myInterval);
@@ -112,7 +112,7 @@ export const setTimer = function() {
     getTyping.split("").forEach((i) => {
       this.state.getTyping.push(i.charCodeAt(0));
     });
-    console.log("GETYPING: " + getTyping.length);
+   // console.log("GETYPING: " + getTyping.length);
     index = getTyping.length;
     //console.log(this.state.getTyping);
     this.state.getTyping.map((item, j) => {
@@ -127,7 +127,7 @@ export const setTimer = function() {
       );
 
       if (item === this.state.char[j]) {
-        console.log("True: " + j);
+        //console.log("True: " + j);
         this.setState({
           color: "rgb(31,188,12)",
           isCorrect: true,
@@ -150,7 +150,7 @@ export const setTimer = function() {
 
     if (count == 1) {
 
-      console.log("inCorrect: " + this.state.inCorrect);
+      //console.log("inCorrect: " + this.state.inCorrect);
       this.setState(prev=>({
         isCorrect: false,
         color: "#ff4d4d",
@@ -174,7 +174,7 @@ export const setTimer = function() {
     let specChar1 = this.state.char[index];
     //console.log("specChar1: "+specChar1)
     let specChar2 = this.state.char[index + 1];
-    console.log("specChar2: " + specChar2);
+    //console.log("specChar2: " + specChar2);
     if (
       specChar1 == "6070" ||
       specChar1 == "6075" ||
@@ -190,8 +190,8 @@ export const setTimer = function() {
       }
     }
 
-    console.log("New: " + getTyping.length);
-    console.log("Old: " + this.state.oldInput.length);
+    //console.log("New: " + getTyping.length);
+    //console.log("Old: " + this.state.oldInput.length);
     if (getTyping.length < this.state.oldInput.length) {
       this.setState({
         isCorrect: false,

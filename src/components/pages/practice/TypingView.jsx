@@ -13,7 +13,7 @@ export default (props) => {
                     borderRadius: "15px",
                     border: "1px solid lightgray",
                     fontFamily: "Suwannaphum",
-                    fontSize: "20px",
+                    fontSize: "18px",
                     resize: 'none',
                   }}
                   onContextMenu={props.onPrevent}

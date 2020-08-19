@@ -74,7 +74,7 @@ export default class Signin extends Component {
           });
         })
         .catch((error) => {
-          console.log("asdfasdf",error);
+          console.log("asdfasdf", error);
           Swal.fire({
             icon: "error",
             title: "មិនអាចចូលគណនី",
@@ -105,6 +105,10 @@ export default class Signin extends Component {
                 <Form>
                   <Form.Group controlId="formBasicEmail">
                     <Form.Control
+                     style={{
+                      fontFamily:
+                        '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                    }}
                       className="rounded-pill"
                       type="email"
                       placeholder="អុីមែល"
@@ -118,6 +122,10 @@ export default class Signin extends Component {
 
                   <Form.Group controlId="formBasicPassword">
                     <Form.Control
+                      style={{
+                        fontFamily:
+                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                      }}
                       className="rounded-pill"
                       type="password"
                       placeholder="លេខសម្ងាត់"

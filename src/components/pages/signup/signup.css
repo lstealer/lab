@@ -10,12 +10,15 @@
     color : #000000 !important;
     border: none;
     padding: 7px 15px;
-    width : 28.5vw;
-    /* font-family: "Arial"; */
+    width : 100%;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica";
+    text-align: center;
+    margin-left: 10px;
 }
 .text-style{
-    margin: 10px 20px 10px 0;
+    margin: 10px 20px 10px 10px !important;
     color: white;
+    font-family: "Suwannaphum", cursive;
 }
 .signup-container{
     width: 60vw;
@@ -35,7 +38,7 @@
     position: inherit;
     left: 0px;  top: -55px;
     font-size: 20px;
-    padding: 15px;
+    padding: 20px;
     border-radius: 40px 0 40px 0;
     color: white;
     margin-bottom: 0px;
