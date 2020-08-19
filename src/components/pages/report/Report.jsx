@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./Report.css";
 import Axios from "axios";
+import Swal from 'sweetalert2';
+
 var CryptoJS = require("crypto-js");
 
 export default class Report extends Component {
@@ -40,10 +42,21 @@ export default class Report extends Component {
             console.log(error);
           });
       }else{
-        alert("Please input the field!")
+        Swal.fire({
+          icon: "error",
+          title: "ផ្អាកដំណើរការ",
+          text: "សូមបំពេញ ព័ត៌មានឲ្យបានគ្រប់គ្រាន់!",
+          
+        })
+
       }
     } else {
-      alert("Please signin first!");
+      Swal.fire({
+        icon: "info",
+        title: "មិនអនុញ្ញាត",
+        text: "សូមចូលគណនីរបស់អ្នក ជាមុនសិន!",
+        
+      })
     }
   }
 

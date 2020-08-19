@@ -3,7 +3,10 @@ import { Form, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "./Signup.css";
 import Axios from "axios";
+import Swal from "sweetalert2";
 import "react-datepicker/dist/react-datepicker.css";
+
+var CryptoJS = require("crypto-js");
 
 export default class Signup extends Component {
   constructor() {
@@ -30,9 +33,7 @@ export default class Signup extends Component {
 
   genderOnChange = (evt) => {
     console.log("====>", evt.target.checked);
-    this.setState({ gender: evt.target.value },()=>{
-      
-    });
+    this.setState({ gender: evt.target.value }, () => {});
   };
 
   validForm = () => {};
@@ -50,25 +51,93 @@ export default class Signup extends Component {
       this.state.email !== "" &&
       this.state.password !== ""
     ) {
-     
-      const user = {
-        name: this.state.name,
-        gender: this.state.gender == "Male" ? true : false,
-        dob: new Date(Date.parse(this.state.dob)).toISOString().slice(0, 10),
-        email: this.state.email,
-        password: this.state.password,
-      };
-      //console.log(" User: ", user);
-      //INSERT: add new user into database;
-      Axios.post("/kh-racer/v1/user", user)
-        .then((result) => {
-          console.log("Result: ", result);
-        })
-        .catch((error) => {
-          console.log("Error: ", error);
+      //console.log(this.state.password,": ", this.state.confirmed)
+      let myPassword = this.state.password.trim();
+      let myConfirmed = this.state.confirmed.trim();
+      if (myPassword == myConfirmed) {
+        const user = {
+          name: this.state.name,
+          gender: this.state.gender == "Male" ? true : false,
+          dob: new Date(Date.parse(this.state.dob)).toISOString().slice(0, 10),
+          email: this.state.email,
+          password: this.state.password,
+        };
+        //console.log(" User: ", user);
+        //INSERT: add new user into database;
+        Axios.post("/kh-racer/v1/user", user)
+          .then((result) => {
+            console.log("Result: ", result);
+            const myUser = {
+              email: this.state.email,
+              pwd: this.state.password,
+            };
+            Axios.post("/authenticate", myUser)
+              .then((myResult) => {
+                console.log("Before Stored: ", myResult.data.data);
+                //ENCYPT AND DECRYPT
+                let encrypt = CryptoJS.AES.encrypt(
+                  myResult.data.data.jwtResponse.jwtToken,
+                  "123"
+                );
+                // console.log("ENCRYPT: ",encrypt);
+                // let tempCode = encrypt.toString();
+                // let decrypt = CryptoJS.AES.decrypt(tempCode,"123");
+                // console.log("DECRYPT: ",decrypt.toString(CryptoJS.enc.Utf8));
+
+                localStorage.setItem(
+                  "signin",
+                  JSON.stringify({
+                    id: myResult.data.data.id,
+                    name: myResult.data.data.name,
+                    gender: myResult.data.data.genderRs,
+                    dob: myResult.data.data.dob,
+                    email: myUser.email,
+                    jwtToken: encrypt.toString(),
+                    isSignin: true,
+                  })
+                );
+                console.log("Stored account: ", localStorage.getItem("signin"));
+               
+                Swal.fire({
+                  icon: "success",
+                  title: "ជោគជ័យ",
+                  text: "លោកអ្នកចុះឈ្មោះ បានសម្រេច!",
+                }).then((result) => {
+                  if (result.value) {
+                    window.location.reload();
+                  }
+                });
+              })
+              .catch((error) => {
+                console.log(error);
+                Swal.fire({
+                  icon: "error",
+                  title: "មិនអាចចូលគណនីបាន",
+                  text: "សូមចូល​ទៅកាន់គណនីរបស់លោកអ្នកម្តងទៀត!",
+                });
+              });
+          })
+          .catch((error) => {
+            console.log("Error: ", error);
+            Swal.fire({
+              icon: "error",
+              title: "មិនអាចចុះឈ្មោះបាន",
+              text: "សូមបំពេញ ព័ត៌មានឲ្យបានគ្រប់គ្រាន់!",
+            });
+          });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "លេខសំងាត់មិនត្រឹមត្រូវ",
+          text: "សូមបំពេញ លេខសំងាត់ឲ្យដូចគ្នា!",
         });
-    }else{
-      alert("Please input all the fields!")
+      }
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "ផ្អាកដំណើរការ",
+        text: "សូមបំពេញ ព័ត៌មានឲ្យបានគ្រប់គ្រាន់!",
+      });
     }
   }
 
@@ -133,6 +202,7 @@ export default class Signup extends Component {
                       <Form.Control
                         name="email"
                         type="email"
+                        value={this.state.email || ""}
                         placeholder="បញ្ចូលអុីមែល"
                         className="rounded-pill"
                         onChange={this.handleChange}
@@ -143,6 +213,7 @@ export default class Signup extends Component {
                       <Form.Control
                         name="password"
                         type="password"
+                        value={this.state.password}
                         placeholder="បញ្ចូលលេខសំងាត់"
                         className="rounded-pill"
                         onChange={this.handleChange}
@@ -153,6 +224,7 @@ export default class Signup extends Component {
                       <Form.Control
                         name="confirmed"
                         type="password"
+                        value={this.state.confirmed || ""}
                         placeholder="បញ្ចូលលេខសំងាត់ម្តងទៀត"
                         className="rounded-pill"
                         onChange={this.handleChange}

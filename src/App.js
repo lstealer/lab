@@ -13,7 +13,7 @@ import Home from './components/pages/home/Home';
 import Footer from './components/pages/footer/Footer';
 import Profile from './components/pages/profile/Profile';
 import ForgetPassword from './components/pages/forgetPasword/ForgetPassword';
-import Report from './components/pages/report/Report'
+import Report from './components/pages/report/Report';
 
 function App() {
   return (
