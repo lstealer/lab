@@ -20,7 +20,7 @@ import {
   countCorrectSymbols,
   onConfirm,
   handleScrollToElement,
-} from "../practice/OnAction";
+} from "../practice/onAction";
 import ContentView from "../practice/ContentView";
 import TypingView from "../practice/TypingView";
 import { bindActionCreators } from "redux";

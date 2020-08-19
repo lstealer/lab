@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
-import "./Signup.css";
+import "./signup.css";
 import Axios from "axios";
 
 export default class Signup extends Component {

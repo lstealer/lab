@@ -16,9 +16,9 @@ export const onRestart = function(e){
 }
 
 export const onKeyDown = function(e){
-    console.log(
-        "KeyDown: " + String.fromCharCode(e.keyCode) + ":" + e.target.value
-      );
+    // console.log(
+    //     "KeyDown: " + String.fromCharCode(e.keyCode) + ":" + e.target.value
+    //   );
       this.setState({
         oldInput: e.target.value,
       });

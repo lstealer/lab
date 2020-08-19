@@ -6,14 +6,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Menu from './components/pages/menu/Menu';
 import Solo from './components/pages/solo/Solo';
 import Party from './components/pages/party/Party';
-import Signin from './components/pages/signin/Signin';
-import Signup from './components/pages/signup/Signup';
 import ListContents from './components/listContents/ListContents';
 import Home from './components/pages/home/Home';
 import Footer from './components/pages/footer/Footer';
 import Profile from './components/pages/profile/Profile';
 import ForgetPassword from './components/pages/forgetPasword/ForgetPassword';
 import Report from './components/pages/report/Report'
+import Signup from "./components/pages/signup/SignUp";
+import Signin from "./components/pages/signin/SignIn";
+import Test from "./components/pages/solo/solo";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/forgetpassword" component={ForgetPassword} />
           <Route path="/report" component={Report} />
+          <Route path="/testing" component={Test}/>
         </Switch>
       <Footer />
       </Router>

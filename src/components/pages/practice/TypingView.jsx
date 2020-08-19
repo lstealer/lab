@@ -15,11 +15,12 @@ export default (props) => {
                     fontFamily: "Suwannaphum",
                     fontSize: "20px"
                   }}
-                  onContextMenu={props.onPrevent}
+
                   //onDragStart={this.onPrevent.bind(this)}
                   //onMouseDown={this.onPrevent.bind(this)}
                   //onSelect={this.onPrevent.bind(this)}
                   //unselectable="on"
+                  onContextMenu={props.onPrevent}
                   onPaste={props.onPrevent}
                   onCopy={props.onPrevent}
                   onCut={props.onPrevent}
