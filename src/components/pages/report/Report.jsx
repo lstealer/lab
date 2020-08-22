@@ -76,7 +76,7 @@ export default class Report extends Component {
 
   render() {
     return (
-      <div className="page">
+      <div className="container">
         <div className="row m-0 p-0">
           <div className="col-md-12 column-style">
             <div className="form-container">

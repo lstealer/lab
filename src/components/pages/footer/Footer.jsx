@@ -25,7 +25,7 @@ export default class Footer extends Component {
                   <p className="footer-text">
                     <span>
                       The Best Software Expert Training
-                      <br /> Center in Cambodia <br></br>8th Generation
+                      <br /> Center in Cambodia <br /><br />8th(COVID-19) Generation
                     </span>
                   </p>
                 </div>

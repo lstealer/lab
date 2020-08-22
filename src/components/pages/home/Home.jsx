@@ -47,14 +47,19 @@ class Home extends Component {
   }
 
   render() {
-    console.log("TOP PLAYERS DATA: ", this.props.data.data);
-    if(this.state.content.length == 0){
-      if (this.props.data.length !== 0) {
-        this.setState({
-          content: this.props.data.data,
-        });
+    try {
+      console.log("TOP PLAYERS DATA: ", this.props.data.data);
+      if(this.state.content.length == 0){
+        if (this.props.data.length !== 0) {
+          this.setState({
+            content: this.props.data.data,
+          });
+        }
       }
+    } catch (error) {
+      console.log(error)
     }
+  
     return (
       <div>
         <MyCarousel />

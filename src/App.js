@@ -29,7 +29,7 @@ function App() {
           <Route path="/party" component={Party} />
           <Route path="/signin" component={Signin} />
           <Route path="/signup" component={Signup} />
-          <Route path="/profile" component={Profile} />
+          <Route path="/profile/:id" component={Profile} />
           <Route path="/forgetpassword" component={ForgetPassword} />
           <Route path="/report" component={Report} />
         </Switch>

@@ -35,7 +35,7 @@ export default class Signin extends Component {
       };
       Axios.post("/authenticate", user)
         .then((result) => {
-          console.log("Before Stored: ", result.data.data);
+          console.log("Before Stored: ", result.data.data.genderRS);
           //ENCYPT AND DECRYPT
           let encrypt = CryptoJS.AES.encrypt(
             result.data.data.jwtResponse.jwtToken,
@@ -51,7 +51,7 @@ export default class Signin extends Component {
             JSON.stringify({
               id: result.data.data.id,
               name: result.data.data.name,
-              gender: result.data.data.genderRs,
+              gender: result.data.data.genderRS,
               dob: result.data.data.dob,
               email: user.email,
               jwtToken: encrypt.toString(),
@@ -96,7 +96,7 @@ export default class Signin extends Component {
 
   render() {
     return (
-      <div className="page">
+      <div className="container">
         <div className="row m-0 p-0">
           <div className="col-md-12 column-style">
             <div className="signin-container">

@@ -75,7 +75,9 @@ export const setTimer = function() {
 
   export const countCorrectSymbols = function(userInput) {
     const text = this.state.text;
+    //console.log("CORRECT SYMBOL", userInput.split("").filter((s, i) => s === text[i]).length);
     return userInput.split("").filter((s, i) => s === text[i]).length;
+    //return userInput;
   }
 
   export const onConfirm = function() {

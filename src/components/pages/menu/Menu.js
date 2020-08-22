@@ -9,6 +9,7 @@ export default class Menu extends Component {
   constructor() {
     super();
     this.state = {
+      id: "",
       email: "",
       name: "",
       isSignin: false,
@@ -19,7 +20,7 @@ export default class Menu extends Component {
     let myUser = JSON.parse(localStorage.getItem("signin"));
     if (myUser && myUser.email) {
       this.setState({
-        // email: myUser.email,
+        id: myUser.id,
         name: myUser.name,
         isSignin: true,
       });
@@ -120,7 +121,7 @@ export default class Menu extends Component {
                     </p>
                     <Nav.Link
                       as={Link}
-                      to={this.state.isSignin ? "/profile" : "/signin"}
+                      to={this.state.isSignin ? `/profile/${this.state.id}` : "/signin"}
                     >
                       <button className="view-profile">
                         {this.state.isSignin ? "មើលគណនី" : "ចូលគណនី"}

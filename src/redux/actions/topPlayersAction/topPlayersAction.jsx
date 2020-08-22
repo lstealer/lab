@@ -4,14 +4,19 @@ import { GET_TOPPLAYERS } from "./topPlayersActionType";
 
 export const getTopPlayers = () => {
     const innerGetTopPlayers = async(dispatch) => {
-        const result = await Axios.get(`${topPlayersURL}`);
-        //*********************** */
-        console.log('#GET TOPPLAYERS: ', result.data);
-
-        dispatch({
-            type: GET_TOPPLAYERS,
-            data: result.data,
-        })
+        try {
+            const result = await Axios.get(`${topPlayersURL}`);
+            //*********************** */
+            console.log('#GET TOPPLAYERS: ', result.data);
+    
+            dispatch({
+                type: GET_TOPPLAYERS,
+                data: result.data,
+            })
+        } catch (error) {
+            console.log(error)
+        }
+     
     }
     return innerGetTopPlayers
 }

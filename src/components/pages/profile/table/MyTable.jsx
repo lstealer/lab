@@ -14,6 +14,7 @@ export default class MyTable extends Component {
   }
   render() {
     try {
+      let tempContent;
       if (this.state.myContent.length == 0) {
         this.state.myContent = this.props.content;
         console.log("content: ", this.state.myContent);
@@ -29,11 +30,15 @@ export default class MyTable extends Component {
               <td>
                 <span>{j + 1}</span>
               </td>
-              {items.map((item, k) => (
-                <td key={k} className="row-bg-color" style={{textAlign: k==0?"left":""}}>
-                  <span>{k==1?`${item} wpm`:k==2?`${item}%`:k==3?`${item.slice(0,10)} ម៉ោង ${item.slice(11,16)}`:item}</span>
-                </td>
-              ))}
+              {items.map((item, k) =>{
+                if(k!=0){
+                  return(
+                    <td key={k} className="row-bg-color" style={{textAlign: k==0?"left":""}}>
+                      <span>{k==1?`${item} wpm`:k==2?`${item}%`:k==4?`${item.slice(0,10)} ម៉ោង ${item.slice(11,16)}`:item}</span>
+                    </td>
+                )
+                }
+              })}
             </tr>
           );
         });
