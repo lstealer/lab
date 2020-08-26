@@ -52,7 +52,7 @@ export default class Content extends Component {
     } else {
       Swal.fire({
         icon: "error",
-        title: "មិនអាចបន្ថែមអត្ថបទ",
+        title: "មិនមានអត្ថបទ",
         text: "សូមបំពេញ ព័ត៌មានឲ្យបានគ្រប់គ្រាន់!",
       });
     }

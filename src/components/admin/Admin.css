@@ -35,10 +35,32 @@ ul a:hover{
 }
 
 ul a li{
-  padding: 20px 40px 1px;
+  padding: 14px 50px 8px;
   /* border-bottom: 1px solid rgba(255, 255, 255, 0.25); */
 }
 
 ul a li:hover{
   background: #0072ff;
+}
+
+ul a li p{
+  margin: 0 !important;
+  text-align: left;
+}
+
+.admin-block{
+  padding-left: 30px;
+  background-color: #252525;
+}
+
+.admin-block:hover{
+  background-color: #252525;
+}
+
+.admin-title{
+  margin: 0;
+}
+
+.menu-row{
+  margin: 20px;
 }
