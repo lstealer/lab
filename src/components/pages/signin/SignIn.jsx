@@ -35,7 +35,7 @@ export default class Signin extends Component {
       };
       Axios.post("/authenticate", user)
         .then((result) => {
-          console.log("Before Stored: ", result.data.data.genderRS);
+          console.log("Before Stored: ", result.data.data);
           //ENCYPT AND DECRYPT
           let encrypt = CryptoJS.AES.encrypt(
             result.data.data.jwtResponse.jwtToken,
@@ -74,7 +74,7 @@ export default class Signin extends Component {
           });
         })
         .catch((error) => {
-          console.log("asdfasdf", error);
+          console.log(error);
           Swal.fire({
             icon: "error",
             title: "មិនអាចចូលគណនី",

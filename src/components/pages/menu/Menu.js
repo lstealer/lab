@@ -41,7 +41,7 @@ export default class Menu extends Component {
           expand="lg"
           bg="dark"
           variant="dark"
-          style={{ width: "100vw" }}
+          style={{ width: "100vw", display: this.props.isAdmin?"none":""}}
         >
           <Link to="/">
             <img style={{ width: "40px", marginRight: "5px"}} src={Logo}></img>

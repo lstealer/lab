@@ -1,0 +1,44 @@
+
+
+.side-menu{
+  position: absolute;
+  width: 20%;
+  height: 100vh;
+  background-color: #414141;
+  left: 0;
+}
+
+.side-content{
+  color: #000000;
+  position: absolute;
+  width: 80%;
+  height: 100vh;
+  background-color: #ffffff;
+  right: 0;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  /* line-height: 50px; */
+}
+
+ul a{
+  color: #ffffff !important;
+  font-size: 20px;
+}
+
+ul a:hover{
+  text-decoration: none;
+}
+
+ul a li{
+  padding: 20px 40px 1px;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.25); */
+}
+
+ul a li:hover{
+  background: #0072ff;
+}

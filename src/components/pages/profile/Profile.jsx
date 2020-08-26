@@ -55,14 +55,9 @@ class Profile extends Component {
       console.log("PLATER HISTORIES: ", this.props.data.data);
       if (this.state.content.length == 0) {
         if (this.props.data.data.length !== 0) {
-          this.setState(
-            {
+          this.setState({
               content: this.props.data.data,
-            },
-            () => {
-              console.log("CONTENT: ", this.state.content);
-            }
-          );
+            });
         }
       }
     } catch (error) {
@@ -80,10 +75,10 @@ class Profile extends Component {
               </p>
               {this.state.IS_UPDATE ? (
                 <div className="profile-edit">
-                  <Link>រក្សាទុក</Link>&nbsp;<Link>បោះបង់</Link>
+                  <p>រក្សាទុក</p>&nbsp;<p>បោះបង់</p>
                 </div>
               ) : (
-                <Link>កែប្រែ</Link>
+                <p>កែប្រែ</p>
               )}
             </div>
           </div>

@@ -58,6 +58,8 @@
     width: 200px;
     height: 50px;
     color: white;
+    outline: none;
+    border: none;
 }
 
 .button-style:hover{

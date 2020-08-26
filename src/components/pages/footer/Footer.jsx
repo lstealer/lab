@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 export default class Footer extends Component {
   render() {
     return (
-      <div className="row m-0" style={{width: "100%"}}>
+      <div className="row m-0" style={{width: "100%", display: this.props.isAdmin?"none":""}}>
         <div className="col-md-12 m-0 p-0">
           <div className="footer">
             <div className="footer-bg">

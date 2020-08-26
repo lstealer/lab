@@ -97,6 +97,7 @@ export default class Report extends Component {
                     resize: "none",
                     fontFamily:
                       '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+    
                   }}
                   onChange={this.onChange.bind(this)}
                   maxLength="200"
