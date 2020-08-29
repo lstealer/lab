@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Practice from "./components/pages/practice/Practice";
 import Menu from "./components/pages/menu/Menu";
@@ -14,6 +13,7 @@ import Profile from "./components/pages/profile/Profile";
 import ForgetPassword from "./components/pages/forgetPasword/ForgetPassword";
 import Report from "./components/pages/report/Report";
 import Admin from "./components/admin/Admin";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   let isAdmin = window.location.pathname.slice(1, 6);

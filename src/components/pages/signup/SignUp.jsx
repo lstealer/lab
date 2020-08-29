@@ -92,12 +92,13 @@ export default class Signup extends Component {
                     gender: myResult.data.data.genderRs,
                     dob: myResult.data.data.dob,
                     email: myUser.email,
+                    image: myResult.data.data.image,
                     jwtToken: encrypt.toString(),
                     isSignin: true,
                   })
                 );
                 console.log("Stored account: ", localStorage.getItem("signin"));
-               
+
                 Swal.fire({
                   icon: "success",
                   title: "ជោគជ័យ",
@@ -151,15 +152,20 @@ export default class Signup extends Component {
               <div className="row m-0 p-0">
                 <div className="col-md-8 m-0 p-0">
                   <Form>
+                    <Form.Text className="text-muted text-left">
+                      <p style={{ color: "#ffffff", marginBottom: "4px" }}>
+                        <span style={{ color: "red" }}>* </span>ឈ្មោះមិនត្រូវមានដកឃ្លា ឬនិមត្តសញ្ញផ្សេងៗ
+                      </p>
+                    </Form.Text>
                     <Form.Group controlId="formBasicEmail">
                       <Form.Control
-                       style={{
-                        fontFamily:
-                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
-                      }}
+                        style={{
+                          fontFamily:
+                            '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                        }}
                         name="name"
                         type="text"
-                        placeholder="បញ្ចូលឈ្មោះ"
+                        placeholder="ឈ្មោះ"
                         className="rounded-pill"
                         onChange={this.handleChange}
                       />
@@ -192,10 +198,10 @@ export default class Signup extends Component {
                       />
 
                       <DatePicker
-                       style={{
-                        fontFamily:
-                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
-                      }}
+                        style={{
+                          fontFamily:
+                            '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                        }}
                         className="rounded-pill dob-style"
                         name="dob"
                         selected={this.state.dob}
@@ -208,14 +214,14 @@ export default class Signup extends Component {
 
                     <Form.Group controlId="formBasicEmail">
                       <Form.Control
-                       style={{
-                        fontFamily:
-                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
-                      }}
+                        style={{
+                          fontFamily:
+                            '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                        }}
                         name="email"
                         type="email"
                         value={this.state.email || ""}
-                        placeholder="បញ្ចូលអុីមែល"
+                        placeholder="អុីមែល"
                         className="rounded-pill"
                         onChange={this.handleChange}
                       />
@@ -223,14 +229,14 @@ export default class Signup extends Component {
 
                     <Form.Group controlId="formBasicPassword">
                       <Form.Control
-                       style={{
-                        fontFamily:
-                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
-                      }}
+                        style={{
+                          fontFamily:
+                            '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                        }}
                         name="password"
                         type="password"
                         value={this.state.password}
-                        placeholder="បញ្ចូលលេខសំងាត់"
+                        placeholder="លេខសំងាត់"
                         className="rounded-pill"
                         onChange={this.handleChange}
                       />
@@ -238,14 +244,14 @@ export default class Signup extends Component {
 
                     <Form.Group controlId="formBasicPassword">
                       <Form.Control
-                       style={{
-                        fontFamily:
-                          '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
-                      }}
+                        style={{
+                          fontFamily:
+                            '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica"',
+                        }}
                         name="confirmed"
                         type="password"
                         value={this.state.confirmed || ""}
-                        placeholder="បញ្ចូលលេខសំងាត់ម្តងទៀត"
+                        placeholder="លេខសំងាត់ម្តងទៀត"
                         className="rounded-pill"
                         onChange={this.handleChange}
                       />

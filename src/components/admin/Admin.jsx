@@ -6,14 +6,16 @@ import ReportUs from "./reportUs/ReportUs";
 import { Link } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import AllContents from "./allContents/AllContents";
+import AddContent from "./addContent/AddContent";
 
 export default class Admin extends Component {
   render() {
-    let myItem = window.location.pathname.slice(7, 11);
-    console.log(myItem);
+    let myItem = window.location.pathname.split("/");
+    let getItem = myItem[myItem.length-1]
+    console.log(getItem);
     return (
       <div className="container">
-        <div className="row">
           <div className="side-menu">
             <ul>
               <Link to="#">
@@ -40,7 +42,7 @@ export default class Admin extends Component {
                   </p>
                 </li>
               </Link>
-              <Link to="/admin/content">
+              <Link to="/admin/contents">
                 <li>
                   <p>
                     <img
@@ -79,7 +81,7 @@ export default class Admin extends Component {
             </ul>
           </div>
           <div className="side-content">
-            <Navbar bg="light" variant="light">
+            <Navbar bg="light" variant="light" className="admin-menu">
               <img
                 src="/image/hamburger1.png"
                 width="30px"
@@ -92,20 +94,21 @@ export default class Admin extends Component {
               </Nav>
               <Form inline>
                 <FormControl
+          
                   type="text"
-                  placeholder="Search"
+                  placeholder="ស្វែងរក"
                   className="mr-sm-2"
                 />
-                <Button variant="outline-primary">Search</Button>
+                <Button variant="outline-primary">ស្វែងរក</Button>
               </Form>
             </Navbar>
-
-            <Dashboard item={myItem} />
-            <Content item={myItem} />
-            <User item={myItem} />
-            <ReportUs item={myItem} />
+            <AddContent item={getItem} />
+            <Dashboard item={getItem} />
+            <AllContents item={getItem}/>
+            <Content item={getItem} />
+            <User item={getItem} />
+            <ReportUs item={getItem} />
           </div>
-        </div>
       </div>
     );
   }

@@ -41,7 +41,7 @@
     border-radius: 25px;
     outline: none;
     border: rgb(0, 114, 255) solid 2px;
-    background-color: rgba(63, 68, 65, 0.5);
+    background-color: rgba(63, 68, 65, 0.5) !important;
     color: #0072ff;
 }
 
@@ -49,7 +49,7 @@
     background-image: linear-gradient(to left, #00c6ff, #0072ff);
     outline: none;
     color: white;
-    border: none;
+    border: none !important;
     /* border: 1px solid rgb(0, 198, 255); */
 }
 .button-style{
@@ -58,8 +58,7 @@
     width: 200px;
     height: 50px;
     color: white;
-    outline: none;
-    border: none;
+    border: none !important;
 }
 
 .button-style:hover{
