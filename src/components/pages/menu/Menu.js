@@ -39,7 +39,7 @@ export default class Menu extends Component {
           className="fixed-top main-menu"
           collapseOnSelect
           expand="lg"
-          bg="dark"
+          bg=""
           variant="dark"
           style={{ width: "100vw", display: this.props.isAdmin?"none":""}}
         >

@@ -68,7 +68,7 @@ class Practice extends Component {
       bookImage: "",
       contentId: 0,
       countDown: 5,
-      colorFlash: 10,
+      colorFlash: 1000,
     };
   }
   onPrevent = onPrevent.bind(this);
@@ -84,7 +84,11 @@ class Practice extends Component {
   handleScrollToElement = handleScrollToElement.bind(this);
 
   async componentWillMount() {
-    
+    this.myColorFlash = setInterval(()=>{
+      this.setState((prev)=>({
+        colorFlash: prev.colorFlash - 1,
+      }))
+    },500)
 
     await Axios.get(baseURL)
       .then((result) => {
@@ -97,17 +101,14 @@ class Practice extends Component {
           bookImage: result.data.data.image,
           contentId: result.data.data.id,
         },()=>{
-          this.myColorFlash = setInterval(()=>{
-            this.setState((prev)=>({
-              colorFlash: prev.colorFlash - 1,
-            }))
-          },500)
+          
           this.myCountDown = setInterval(() => {
             this.setState((prev) => ({
               countDown: prev.countDown - 1,
             }));
             if (this.state.countDown == 0) {
               clearInterval(this.myCountDown);
+              clearInterval(this.myColorFlash);
               this.focusInput.focus();
               this.myInterval = setInterval(() => {
                 this.setState((prev) => ({

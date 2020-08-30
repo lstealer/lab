@@ -96,7 +96,7 @@ export default class Admin extends Component {
                 <FormControl
           
                   type="text"
-                  placeholder="ស្វែងរក"
+                  placeholder="សូមបញ្ចូលទីនេះ..."
                   className="mr-sm-2"
                 />
                 <Button variant="outline-primary">ស្វែងរក</Button>

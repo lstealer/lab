@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import "./Report.css";
 import Axios from "axios";
 import Swal from "sweetalert2";
+import Loading from '../../../components/loading/Loading';
 
 var CryptoJS = require("crypto-js");
 
@@ -12,6 +13,7 @@ export default class Report extends Component {
     this.state = {
       reportText: "",
       count: 0,
+      loading: false,
     };
   }
 
@@ -19,6 +21,7 @@ export default class Report extends Component {
     let myUser = JSON.parse(localStorage.getItem("signin"));
     if (myUser && myUser.email) {
       if (this.state.reportText !== "") {
+        this.setState({loading: true,})
         console.log(" ID: ", myUser.id);
         let decrypt = CryptoJS.AES.decrypt(myUser.jwtToken, "123");
         let getDecrypt = decrypt.toString(CryptoJS.enc.Utf8);
@@ -38,6 +41,7 @@ export default class Report extends Component {
         Axios.post("/kh-racer/v1/report", report, headers)
           .then((result) => {
             console.log(result);
+            this.setState({loading: false,})
             Swal.fire({
               icon: "success",
               title: "ជោគជ័យ",
@@ -113,6 +117,11 @@ export default class Report extends Component {
                   បញ្ជូន
                 </Button>
               </center>
+              <div className="row text-center m-0 p-0">
+                <div className="col-md-12">
+                  <Loading loading={this.state.loading} />
+                </div>
+              </div>
             </div>
           </div>
         </div>

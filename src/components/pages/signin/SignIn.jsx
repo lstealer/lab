@@ -4,6 +4,7 @@ import "./Signin.css";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import Swal from "sweetalert2";
+import Loading from '../../../components/loading/Loading';
 
 var CryptoJS = require("crypto-js");
 export default class Signin extends Component {
@@ -14,6 +15,7 @@ export default class Signin extends Component {
       password: "",
       isSignin: false,
       jwtToken: "",
+      loading: false,
     };
   }
 
@@ -29,6 +31,9 @@ export default class Signin extends Component {
 
   onSignIn() {
     if (this.state.email !== "" && this.state.password !== "") {
+      this.setState({
+        loading: true,
+      })
       const user = {
         email: this.state.email,
         pwd: this.state.password,
@@ -62,6 +67,7 @@ export default class Signin extends Component {
           this.setState({
             isSignin: true,
             jwtToken: encrypt.toString(),
+            loading: false,
           });
           Swal.fire({
             icon: "success",
@@ -154,6 +160,11 @@ export default class Signin extends Component {
                   </Link>
                 </Form>
               </center>
+              <div className="row text-center m-0 p-0">
+                <div className="col-md-12">
+                  <Loading loading={this.state.loading} />
+                </div>
+              </div>
             </div>
           </div>
         </div>

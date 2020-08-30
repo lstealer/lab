@@ -7,6 +7,9 @@ import { topPlayersURL } from "../../../config/API";
 import { bindActionCreators } from "redux";
 import { getTopPlayers } from "../../../redux/actions/topPlayersAction/topPlayersAction";
 import { connect } from "react-redux";
+import Loading from "../../loading/Loading";
+// import { css } from "@emotion/core";
+// import PuffLoader from "react-spinners/PuffLoader";
 
 const header = [
   "លរ",
@@ -16,15 +19,21 @@ const header = [
   "កាលបរិច្ឆេទ",
 ];
 
+// const override = css`
+//   display: block;
+//   margin: 25px auto;
+//   border-color: red;
+// `;
+
 class Home extends Component {
   constructor() {
     super();
     this.state = {
       content: [],
+      loading: true,
     };
   }
   componentWillMount() {
-    
     this.props.getTopPlayers();
     // console.log("TOP PLAYERS DATA: ", this.props.data.data);
     // if (this.props.data.length !== 0) {
@@ -49,17 +58,21 @@ class Home extends Component {
   render() {
     try {
       console.log("TOP PLAYERS DATA: ", this.props.data.data);
-      if(this.state.content.length == 0){
+      if (this.state.content.length == 0) {
         if (this.props.data.length !== 0) {
           this.setState({
             content: this.props.data.data,
+          },()=>{
+            this.setState({
+              loading: false,
+            })
           });
         }
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  
+
     return (
       <div>
         <MyCarousel />
@@ -74,6 +87,15 @@ class Home extends Component {
         </div>
         <div style={{ margin: "-50px 100px 0" }}>
           <MyTable header={header} content={this.state.content} />
+          <Loading loading={this.state.loading}/>
+          {/* <div className="sweet-loading">
+            <PuffLoader
+              css={override}
+              size={50}
+              color={"#00c6ff"}
+              loading={this.state.loading}
+            />
+          </div> */}
         </div>
       </div>
     );

@@ -7,6 +7,7 @@ import MyTable from "./table/MyTable";
 import { getPlayerHistories } from "../../../redux/actions/playerHistoriesAction/playerHistoriesAction";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import Loading from '../../../components/loading/Loading';
 
 const header = [
   "លរ",
@@ -27,6 +28,7 @@ class Profile extends Component {
       email: "",
       dob: null,
       content: [],
+      loading: true,
     };
   }
 
@@ -57,6 +59,10 @@ class Profile extends Component {
         if (this.props.data.data.length !== 0) {
           this.setState({
               content: this.props.data.data,
+            },()=>{
+              this.setState({
+                loading: false,
+              })
             });
         }
       }
@@ -157,6 +163,7 @@ class Profile extends Component {
         <div className="row m-0">
           <div className="col-md-12 my-table">
             <MyTable header={header} content={this.state.content} />
+            <Loading loading={this.state.loading}/>
           </div>
         </div>
       </div>

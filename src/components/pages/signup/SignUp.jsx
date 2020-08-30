@@ -5,6 +5,7 @@ import "./Signup.css";
 import Axios from "axios";
 import Swal from "sweetalert2";
 import "react-datepicker/dist/react-datepicker.css";
+import Loading from "../../loading/Loading";
 
 var CryptoJS = require("crypto-js");
 
@@ -18,6 +19,7 @@ export default class Signup extends Component {
       email: "",
       password: "",
       comfirmed: "",
+      loading: false,
     };
   }
 
@@ -64,6 +66,9 @@ export default class Signup extends Component {
         };
         //console.log(" User: ", user);
         //INSERT: add new user into database;
+        this.setState({
+          loading: true,
+        })
         Axios.post("/kh-racer/v1/user", user)
           .then((result) => {
             console.log("Result: ", result);
@@ -98,6 +103,10 @@ export default class Signup extends Component {
                   })
                 );
                 console.log("Stored account: ", localStorage.getItem("signin"));
+
+                this.setState({
+                  loading: false,
+                })
 
                 Swal.fire({
                   icon: "success",
@@ -154,7 +163,8 @@ export default class Signup extends Component {
                   <Form>
                     <Form.Text className="text-muted text-left">
                       <p style={{ color: "#ffffff", marginBottom: "4px" }}>
-                        <span style={{ color: "red" }}>* </span>ឈ្មោះមិនត្រូវមានដកឃ្លា ឬនិមត្តសញ្ញផ្សេងៗ
+                        <span style={{ color: "red" }}>* </span>
+                        ឈ្មោះមិនត្រូវមានដកឃ្លា ឬនិមត្តសញ្ញផ្សេងៗ
                       </p>
                     </Form.Text>
                     <Form.Group controlId="formBasicEmail">
@@ -275,6 +285,11 @@ export default class Signup extends Component {
                       </Button>
                     </div>
                   </center>
+                </div>
+              </div>
+              <div className="row text-center m-0 p-0">
+                <div className="col-md-12">
+                  <Loading loading={this.state.loading} />
                 </div>
               </div>
             </div>

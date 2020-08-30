@@ -4,6 +4,7 @@ import "./MyTable.css";
 
 let tableHeader = null;
 let tableRow = null;
+
 export default class MyTable extends Component {
   constructor(props) {
     super(props);
