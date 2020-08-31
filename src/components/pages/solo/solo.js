@@ -155,8 +155,8 @@ const Test = ({location}) => {
         if (temp[temp.length - 1] !== text[temp.length - 1]) {
             setIncorrect(incorrect+1);
             setTxtValue(oldInput);
-             sc1 = text[txtValue.length ];
-             sc2 = text[txtValue.length + 1];
+             sc1 = text[oldInput.length ];
+             sc2 = text[oldInput.length + 1];
             console.log("sc1",sc1,"sc2",sc2);
             setSpecChar1(sc1);
             setSpecChar2(sc2);
@@ -184,9 +184,10 @@ const Test = ({location}) => {
             // console.log("sc1",sc1,"sc2",sc2);
             // setSpecChar1(sc1);
             // setSpecChar2(sc2);
+            if(sc1!==undefined&&sc2!==undefined){
             sc1=sc1.charCodeAt(0);
             sc2=sc2.charCodeAt(0);
-            console.log("sc1==>",sc1,"sc2==>",sc2);
+     //       console.log("sc1==>",sc1,"sc2==>",sc2);
             if (
                 sc1 === 6070 ||
                 sc1 === 6075 ||
@@ -198,6 +199,7 @@ const Test = ({location}) => {
                 }
             }
         }
+    }
 
 
         if (event.target.value !== text)
