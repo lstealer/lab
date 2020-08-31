@@ -141,6 +141,7 @@ const Test = ({location}) => {
 
 
     const onChange = (event) => {
+        let sc1, sc2;
         event.preventDefault()
         setIsSpecChar(true)
         const typeTimer = setInterval(() => {
@@ -154,7 +155,11 @@ const Test = ({location}) => {
         if (temp[temp.length - 1] !== text[temp.length - 1]) {
             setIncorrect(incorrect+1);
             setTxtValue(oldInput);
-            
+             sc1 = text[txtValue.length ];
+             sc2 = text[txtValue.length + 1];
+            console.log("sc1",sc1,"sc2",sc2);
+            setSpecChar1(sc1);
+            setSpecChar2(sc2);
             
             
         } else {
@@ -163,8 +168,8 @@ const Test = ({location}) => {
             if (time !== 1) {
                 setTxtValue(event.target.value);
                 setPercentage((txtValue.length / text.length) * 100)
-                let sc1 = text[txtValue.length + 1];
-                let sc2 = text[txtValue.length + 2];
+                 sc1 = text[event.target.value.length ];
+                 sc2 = text[event.target.value.length + 1];
                 console.log("sc1",sc1,"sc2",sc2);
                 setSpecChar1(sc1);
                 setSpecChar2(sc2);
@@ -174,11 +179,11 @@ const Test = ({location}) => {
                     setWpm((symbol / 5) / (sec / 60))
                 }
             }
-            let sc1 = text[event.target.value.length];
-            let sc2 = text[event.target.value.length + 1];
-            console.log("sc1",sc1,"sc2",sc2);
-            setSpecChar1(sc1);
-            setSpecChar2(sc2);
+            // let sc1 = text[event.target.value.length];
+            // let sc2 = text[event.target.value.length + 1];
+            // console.log("sc1",sc1,"sc2",sc2);
+            // setSpecChar1(sc1);
+            // setSpecChar2(sc2);
             sc1=sc1.charCodeAt(0);
             sc2=sc2.charCodeAt(0);
             console.log("sc1==>",sc1,"sc2==>",sc2);
