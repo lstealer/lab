@@ -49,7 +49,7 @@ class AllContents extends Component {
       <div
         className="container"
         style={{
-          display: this.props.item == "contents" ? "" : "none",
+          // display: this.props.item == "contents" ? "" : "none",
           color: "#000000",
         }}
       >

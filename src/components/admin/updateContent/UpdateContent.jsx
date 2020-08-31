@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./AddContent.css";
+import "./UpdateContent.css";
 import Axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 
-export default class AddContent extends Component {
+export default class UpdateContent extends Component {
   constructor() {
     super();
     this.state = {
@@ -19,9 +19,10 @@ export default class AddContent extends Component {
     };
   }
 
-  addContent() {
+  updateContent() {
     if (this.state.khContent !== "") {
       let myContent = {
+        id: this.state.id,
         title: this.state.title == "" ? "ផ្សេងៗ" : this.state.title,
         author: this.state.author == "" ? "ផ្សេងៗ" : this.state.author,
         description:
@@ -29,9 +30,9 @@ export default class AddContent extends Component {
         khContent: this.state.khContent,
       };
 
-      console.log("Added Content: ", myContent);
+      console.log("View Content: ", myContent);
 
-      Axios.post("/kh-racer/v1/content", myContent)
+      Axios.patch("/kh-racer/v1/content", myContent)
         .then((result) => {
           console.log(result);
           Swal.fire({
@@ -74,6 +75,21 @@ export default class AddContent extends Component {
     });
   };
 
+  componentWillReceiveProps() {
+    let getContentStore = JSON.parse(localStorage.getItem("contentStore"));
+    console.log("Content Store: ", getContentStore);
+    if (getContentStore) {
+      this.setState({
+        id: getContentStore.id,
+        title: getContentStore.title,
+        author: getContentStore.author,
+        description: getContentStore.description,
+        khContent: getContentStore.khContent,
+        image: getContentStore.image,
+      });
+    }
+  }
+
   render() {
 
     return (
@@ -81,12 +97,12 @@ export default class AddContent extends Component {
         className="container"
         style={{
           // display:
-          //   this.props.item == "add"? "" : "none",
+          //   this.props.item == "update" || this.props.item == "view" ? "" : "none",
           paddingRight: "80px",
         }}
       >
         <div className="row title-add">
-          <h3>{"បន្ថែមអត្ថបទ"}</h3>
+          <h3>អំពីអត្ថបទ</h3>
         </div>
 
         <div className="row">
@@ -118,7 +134,7 @@ export default class AddContent extends Component {
                   name="title"
                   value={this.state.title}
                   onChange={this.handleOnChange.bind(this)}
-                //   readOnly={this.props.item == "add" ? true : false}
+                  readOnly={false }
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
@@ -133,7 +149,7 @@ export default class AddContent extends Component {
                   name="author"
                   value={this.state.author}
                   onChange={this.handleOnChange.bind(this)}
-                //   readOnly={this.props.item == "add" ? true : false}
+                  readOnly={false}
                 />
               </Form.Group>
 
@@ -151,7 +167,7 @@ export default class AddContent extends Component {
                   }}
                   onChange={this.handleOnChange.bind(this)}
                   maxLength="200"
-                //   readOnly={this.props.item == "add" ? true : false}
+                  readOnly={false}
                 />
               </Form.Group>
             </Form>
@@ -187,7 +203,7 @@ export default class AddContent extends Component {
                 }}
                 onChange={this.onChangeContent.bind(this)}
                 maxLength="200"
-                // readOnly={this.props.item == "add" ? true : false}
+                readOnly={false}
               />
             </Form.Group>
             <Form.Text className="text-muted text-left">
@@ -202,13 +218,13 @@ export default class AddContent extends Component {
           style={{ display: "flex", justifyContent: "center" }}
         >
           <Button
-            // style={{ display: this.props.item == "add" ? "none" : "" }}
+            // style={{ display: "none" }}
             className="rounded-pill button-style"
             variant="primary"
             type="button"
-            onClick={this.addContent.bind(this)}
+            onClick={this.updateContent.bind(this)}
           >
-            បន្ថែម
+            កែប្រែ
           </Button>
         </div>
       </div>

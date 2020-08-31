@@ -19,7 +19,7 @@ import {
   countCorrectSymbols,
   onConfirm,
   handleScrollToElement,
-} from "../practice/OnAction";
+} from "../practice/onAction";
 import ContentView from "../practice/ContentView";
 import TypingView from "../practice/TypingView";
 import { bindActionCreators } from "redux";
@@ -112,22 +112,22 @@ class Solo extends Component {
   }
 
   render() {
-    let alertResult = (
-      <SweetAlert success title="បានបញ្ចប់!" onConfirm={this.onConfirm.bind(this)} className="sweet-alert">
-        សូមចុច <span>OK</span> ដើម្បីពិនិត្យលទ្ធផល!
-      </SweetAlert>
-    );
-    let myTime = `${String(Math.floor(this.state.time / 60)).padStart(
-      2,
-      "0"
-    )}:${String(this.state.time % 60).padStart(2, "0")}`;
-    let mainTime = `${String(Math.floor(this.state.mainTime / 60)).padStart(
-      2,
-      "0"
-    )}:${String(this.state.mainTime % 60).padStart(2, "0")}`;
+      let alertResult = (
+        <SweetAlert success title="បានបញ្ចប់!" onConfirm={this.onConfirm.bind(this)} className="sweet-alert">
+          សូមចុច <span>OK</span> ដើម្បីពិនិត្យលទ្ធផល!
+        </SweetAlert>
+      );
+      let myTime = `${String(Math.floor(this.state.time / 60)).padStart(
+        2,
+        "0"
+      )}:${String(this.state.time % 60).padStart(2, "0")}`;
+      let mainTime = `${String(Math.floor(this.state.mainTime / 60)).padStart(
+        2,
+        "0"
+      )}:${String(this.state.mainTime % 60).padStart(2, "0")}`;
 
-    let myAccuracy = `${this.state.accuracy.toFixed(2)}`;
-    let wpm = <Speed sec={this.state.sec} symbols={this.state.symbols} />;
+      let myAccuracy = `${this.state.accuracy.toFixed(2)}`;
+      let wpm = <Speed sec={this.state.sec} symbols={this.state.symbols} />;
     return (
       <div>
         <div className="mode-title">
@@ -184,6 +184,10 @@ class Solo extends Component {
               <Form>
                 <Form.Group controlId="formBasicEmail">
                   {/*<Form.Label>Email address</Form.Label>*/}
+                  {/*isCorrect?userInput:oldInput*/}
+                  {/*finished readOnly*/}
+                  {/*onKeyDown not allow move cursor back */}
+                  {/*onFocus close click directly*/}
 
                   <TypingView
                     onPrevent={this.onPrevent}

@@ -26,6 +26,36 @@ export default class Signin extends Component {
         isSignin: true,
         jwtToken: myUser.jwtToken,
       });
+
+      let tempCode = myUser.jwtToken.toString();
+      let decrypt = CryptoJS.AES.decrypt(tempCode, "123");
+      console.log("DECRYPT: ", decrypt.toString(CryptoJS.enc.Utf8));
+
+      // let header = {
+      //   Authorization: "Bearer "+decrypt.toString(CryptoJS.enc.Utf8).trim(),
+      // };
+      let token = decrypt.toString(CryptoJS.enc.Utf8).trim();
+      Axios.get("/kh-racer/v1/admin", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+        .then((result) => {
+          console.log("STATUS: ", result.data.status);
+          let encrypt = CryptoJS.AES.encrypt(
+            result.data.status,
+            "123"
+          );
+          localStorage.setItem("status", JSON.stringify({
+            status: encrypt.toString(),
+          }))
+        })
+        .catch((error) => {
+          console.log(error);
+          localStorage.removeItem("status")
+        });
+    }else{
+      localStorage.removeItem("status")
     }
   }
 

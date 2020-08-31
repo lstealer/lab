@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./Content.css";
+import "./ViewContent.css";
 import Axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 
-export default class Content extends Component {
+export default class ViewContent extends Component {
   constructor() {
     super();
     this.state = {
@@ -30,7 +30,7 @@ export default class Content extends Component {
         khContent: this.state.khContent,
       };
 
-      console.log("update Content: ", myContent);
+      console.log("View Content: ", myContent);
 
       Axios.patch("/kh-racer/v1/content", myContent)
         .then((result) => {
@@ -96,13 +96,13 @@ export default class Content extends Component {
       <div
         className="container"
         style={{
-          display:
-            this.props.item == "update" || this.props.item == "view" ? "" : "none",
+          // display:
+          //   this.props.item == "update" || this.props.item == "view" ? "" : "none",
           paddingRight: "80px",
         }}
       >
         <div className="row title-add">
-          <h3>{this.props.item == "update" ? "កែប្រែអត្ថបទ" : "អំពីអត្ថបទ"}</h3>
+          <h3>អំពីអត្ថបទ</h3>
         </div>
 
         <div className="row">
@@ -134,7 +134,7 @@ export default class Content extends Component {
                   name="title"
                   value={this.state.title}
                   onChange={this.handleOnChange.bind(this)}
-                  readOnly={this.props.item == "view" ? true : false}
+                  readOnly={true }
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
@@ -149,7 +149,7 @@ export default class Content extends Component {
                   name="author"
                   value={this.state.author}
                   onChange={this.handleOnChange.bind(this)}
-                  readOnly={this.props.item == "view" ? true : false}
+                  readOnly={true}
                 />
               </Form.Group>
 
@@ -167,7 +167,7 @@ export default class Content extends Component {
                   }}
                   onChange={this.handleOnChange.bind(this)}
                   maxLength="200"
-                  readOnly={this.props.item == "view" ? true : false}
+                  readOnly={true}
                 />
               </Form.Group>
             </Form>
@@ -203,7 +203,7 @@ export default class Content extends Component {
                 }}
                 onChange={this.onChangeContent.bind(this)}
                 maxLength="200"
-                readOnly={this.props.item == "view" ? true : false}
+                readOnly={true}
               />
             </Form.Group>
             <Form.Text className="text-muted text-left">
@@ -218,7 +218,7 @@ export default class Content extends Component {
           style={{ display: "flex", justifyContent: "center" }}
         >
           <Button
-            style={{ display: this.props.item == "view" ? "none" : "" }}
+            style={{ display: "none" }}
             className="rounded-pill button-style"
             variant="primary"
             type="button"

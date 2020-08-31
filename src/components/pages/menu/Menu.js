@@ -29,6 +29,7 @@ export default class Menu extends Component {
 
   onSignout() {
     localStorage.removeItem("signin");
+    localStorage.removeItem("status");
     window.location.reload();
   }
 
