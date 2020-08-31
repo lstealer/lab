@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Animation from "../practice/Animation";
+import Animation from "./Animation";
 import Preview from "../practice/Preview";
 import {Form} from "react-bootstrap";
 import TypingView from "../practice/TypingView";

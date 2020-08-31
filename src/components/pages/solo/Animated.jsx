@@ -1,6 +1,6 @@
 import React from "react";
 import soloStyle from "./soloStyle";
-import Animation from "../practice/Animation";
+import Animation from "./Animation";
 import Speed from "../practice/Speed";
 
 const Animated = (props) => {
