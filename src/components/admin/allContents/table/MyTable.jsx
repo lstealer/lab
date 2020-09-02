@@ -95,7 +95,7 @@ export default class MyTable extends Component {
                     កែប្រែ
                   </Button>
                 </Link>{" "}
-                <Button variant="danger" name={j} onClick={this.onDelete.bind(this)}>លុប</Button>{" "}
+                {/* <Button variant="danger" name={j} onClick={this.onDelete.bind(this)}>លុប</Button>{" "} */}
               </td>
             </tr>
           );

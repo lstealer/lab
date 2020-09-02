@@ -42,7 +42,7 @@ export default (props) => {
 
               <p>សាកល្បង ប្រកួតវាយអក្សរខ្មែរ</p>
               <p>ជាមួយ អ្នកមិនស្គាល់</p>
-              <p>៤ នាក់ផ្សេងទៀត</p>
+              <p>៣ នាក់ផ្សេងទៀត</p>
               <p>ដើម្បីដណ្តើមជ័យលាភី</p>
               <Link to="/solo">
                <button className="button-style1">​ចាប់ផ្តើម</button>

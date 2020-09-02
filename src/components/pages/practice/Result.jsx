@@ -62,7 +62,7 @@ export default (props) => {
       <div className="row content-info">
         <div className="col-md-3">
           <div className="image-content">
-          <img src={props.bookImage} />
+          <img src={props.bookImage == "" ? props.noImage:props.bookImage} />
           </div>
         </div>
         <div className="col-md-9" style={{marginTop: "50px"}}>

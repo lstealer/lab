@@ -69,6 +69,7 @@ class Practice extends Component {
       contentId: 0,
       countDown: 5,
       colorFlash: 1000,
+      noImage: '/image/noimage.png',
     };
   }
   onPrevent = onPrevent.bind(this);
@@ -374,6 +375,7 @@ class Practice extends Component {
             author={this.state.author}
             desc={this.state.desc}
             bookImage={this.state.bookImage}
+            noImage={this.state.noImage}
           />
           <p ref={this.myRef}></p>
         </div>

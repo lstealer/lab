@@ -8,6 +8,7 @@ export default class ViewContent extends Component {
   constructor() {
     super();
     this.state = {
+      imageURL: null,
       id: "",
       title: "",
       author: "",
@@ -16,49 +17,8 @@ export default class ViewContent extends Component {
       countDesc: 0,
       countContent: 0,
       isAdded: true,
+      noImage: '/image/noimage.png',
     };
-  }
-
-  updateContent() {
-    if (this.state.khContent !== "") {
-      let myContent = {
-        id: this.state.id,
-        title: this.state.title == "" ? "ផ្សេងៗ" : this.state.title,
-        author: this.state.author == "" ? "ផ្សេងៗ" : this.state.author,
-        description:
-          this.state.description == "" ? "ផ្សេងៗ" : this.state.description,
-        khContent: this.state.khContent,
-      };
-
-      console.log("View Content: ", myContent);
-
-      Axios.patch("/kh-racer/v1/content", myContent)
-        .then((result) => {
-          console.log(result);
-          Swal.fire({
-            icon: "success",
-            title: "ជោគជ័យ",
-            text: "លោកអ្នកបាន កែប្រែអត្ថបទបានសម្រេច!",
-          });
-          this.setState({
-            title: "",
-            author: "",
-            description: "",
-            khContent: "",
-            countDesc: 0,
-            countContent: 0,
-          });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "មិនមានអត្ថបទ",
-        text: "សូមបំពេញ ព័ត៌មានឲ្យបានគ្រប់គ្រាន់!",
-      });
-    }
   }
 
   handleOnChange = (evt) => {
@@ -75,7 +35,7 @@ export default class ViewContent extends Component {
     });
   };
 
-  componentWillReceiveProps() {
+  componentWillMount() {
     let getContentStore = JSON.parse(localStorage.getItem("contentStore"));
     console.log("Content Store: ", getContentStore);
     if (getContentStore) {
@@ -86,8 +46,14 @@ export default class ViewContent extends Component {
         description: getContentStore.description,
         khContent: getContentStore.khContent,
         image: getContentStore.image,
+        countContent: getContentStore.khContent.length,
+        countDesc: getContentStore.description.length,
       });
     }
+  }
+
+  isImageError(e) {
+    e.target.src = this.state.noImage;
   }
 
   render() {
@@ -116,7 +82,7 @@ export default class ViewContent extends Component {
             <h5 className="title-item">
               <p>ពិពណ៌នា</p>
               <span style={{ color: "grey", fontSize: "14px" }}>
-                [{this.state.countDesc}/200]
+                {/* [{this.state.countDesc}/200] */}
               </span>
             </h5>
           </div>
@@ -174,17 +140,22 @@ export default class ViewContent extends Component {
           </div>
 
           <div className="col-md-4">
-            <img src="/image/KSHRD.png" alt="Profile" className="book-img" />
+          <img
+                src={this.state.imageURL === null ?this.state.noImage:this.state.imageURL}
+                alt="Article Image"
+                className="book-img"
+                onError={this.isImageError.bind(this)}
+              />
           </div>
         </div>
         <div className="row">
           <div className="col-md-4">
             <h5 className="title-item">
               <p>
-                អត្ថបទ<span style={{ color: "red" }}> *</span>
+                អត្ថបទ<span style={{ color: "red" }}></span>
               </p>
               <span style={{ color: "grey", fontSize: "14px" }}>
-                [{this.state.countContent}/200]
+                {/* [{this.state.countContent}/200] */}
               </span>
             </h5>
           </div>
@@ -208,24 +179,10 @@ export default class ViewContent extends Component {
             </Form.Group>
             <Form.Text className="text-muted text-left">
               <p style={{ color: "grey" }}>
-                <span style={{ color: "red" }}>* </span>ចាំបាច់ ត្រូវតែបញ្ចូល
+                {/* <span style={{ color: "red" }}>* </span>ចាំបាច់ ត្រូវតែបញ្ចូល */}
               </p>
             </Form.Text>
           </div>
-        </div>
-        <div
-          className="row"
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <Button
-            style={{ display: "none" }}
-            className="rounded-pill button-style"
-            variant="primary"
-            type="button"
-            onClick={this.updateContent.bind(this)}
-          >
-            កែប្រែ
-          </Button>
         </div>
       </div>
     );

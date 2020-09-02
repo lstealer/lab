@@ -63,13 +63,13 @@ export default class Menu extends Component {
               <Nav.Link href="#contact" className="mymenu">
                 ទំនាក់ទំនង
               </Nav.Link>
-              <Nav.Link as={Link} to="/language" className="mymenu dropdown">
+              {/* <Nav.Link as={Link} to="/language" className="mymenu dropdown">
                 <h6 className="dropbtn">ភាសា</h6>
                 <div className="dropdown-content">
                   <p>ខ្មែរ</p>
                   <p>អង់គ្លេស</p>
                 </div>
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link className="mymenu" style={{ marginTop: "-1px" }}>
                 <b>
                   <span>{this.state.isSignin ? this.state.name : "គណនី"}</span>

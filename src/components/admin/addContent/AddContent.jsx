@@ -4,10 +4,14 @@ import Axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 
+var CryptoJS = require("crypto-js");
+
 export default class AddContent extends Component {
   constructor() {
     super();
     this.state = {
+      myImage: null,
+      imageURL: null,
       id: "",
       title: "",
       author: "",
@@ -16,41 +20,81 @@ export default class AddContent extends Component {
       countDesc: 0,
       countContent: 0,
       isAdded: true,
+      noImage: "/image/noimage.png",
     };
   }
 
   addContent() {
     if (this.state.khContent !== "") {
-      let myContent = {
-        title: this.state.title == "" ? "ផ្សេងៗ" : this.state.title,
-        author: this.state.author == "" ? "ផ្សេងៗ" : this.state.author,
-        description:
-          this.state.description == "" ? "ផ្សេងៗ" : this.state.description,
-        khContent: this.state.khContent,
-      };
+      let getImageURL = null;
+      let token = "";
+      let myUser = JSON.parse(localStorage.getItem("signin"));
+      if (myUser && myUser.isSignin) {
+        let tempCode = myUser.jwtToken.toString();
+        let decrypt = CryptoJS.AES.decrypt(tempCode, "123");
+        console.log("DECRYPT: ", decrypt.toString(CryptoJS.enc.Utf8));
 
-      console.log("Added Content: ", myContent);
-
-      Axios.post("/kh-racer/v1/content", myContent)
-        .then((result) => {
-          console.log(result);
-          Swal.fire({
-            icon: "success",
-            title: "ជោគជ័យ",
-            text: "លោកអ្នកបាន កែប្រែអត្ថបទបានសម្រេច!",
-          });
-          this.setState({
-            title: "",
-            author: "",
-            description: "",
-            khContent: "",
-            countDesc: 0,
-            countContent: 0,
-          });
+        let formData = new FormData();
+        formData.append("file", this.state.myImage);
+        token = decrypt.toString(CryptoJS.enc.Utf8).trim();
+        Axios.post("/kh-racer/v1/uploads", formData, {
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "multipart/form-data",
+          },
         })
-        .catch((error) => {
-          console.log(error);
-        });
+          .then((result) => {
+            console.log("UPLOAD: ", result.data.data[0].id);
+            getImageURL = result.data.data[0].id;
+
+            let myContent = {
+              title: this.state.title == "" ? "ផ្សេងៗ" : this.state.title,
+              author: this.state.author == "" ? "ផ្សេងៗ" : this.state.author,
+              description:
+                this.state.description == ""
+                  ? "ផ្សេងៗ"
+                  : this.state.description,
+              khContent: this.state.khContent,
+              image: getImageURL,
+            };
+            //******************************************* */
+            console.log("Added Content: ", myContent);
+
+            Axios.post("/kh-racer/v1/content", myContent, {
+              headers: {
+                Authorization: "Bearer " + token,
+                // "Content-Type": "multipart/form-data",
+              },
+            })
+              .then((result) => {
+                console.log(result);
+                Swal.fire({
+                  icon: "success",
+                  title: "ជោគជ័យ",
+                  text: "លោកអ្នកបាន បន្ថែមអត្ថបទបានសម្រេច!",
+                });
+                this.setState({
+                  title: "",
+                  author: "",
+                  description: "",
+                  khContent: "",
+                  countDesc: 0,
+                  countContent: 0,
+                });
+              })
+              .catch((error) => {
+                console.log(error);
+                Swal.fire({
+                  icon: "error",
+                  title: "មានកំហុស",
+                  text: "បញ្ហាក្នុងពេលបញ្ចូលទិន្នន័យ",
+                });
+              });
+          })
+          .catch((error) => {
+            console.log("UPLOAD ERROR: ", error);
+          });
+      }
     } else {
       Swal.fire({
         icon: "error",
@@ -58,6 +102,14 @@ export default class AddContent extends Component {
         text: "សូមបំពេញ ព័ត៌មានឲ្យបានគ្រប់គ្រាន់!",
       });
     }
+  }
+
+  handleImage(e) {
+    // e.preventDefault();
+    this.setState({
+      myImage: e.target.files[0],
+      imageURL: URL.createObjectURL(e.target.files[0]),
+    });
   }
 
   handleOnChange = (evt) => {
@@ -74,8 +126,11 @@ export default class AddContent extends Component {
     });
   };
 
-  render() {
+  isImageError(e) {
+    e.target.src = this.state.noImage;
+  }
 
+  render() {
     return (
       <div
         className="container"
@@ -118,7 +173,7 @@ export default class AddContent extends Component {
                   name="title"
                   value={this.state.title}
                   onChange={this.handleOnChange.bind(this)}
-                //   readOnly={this.props.item == "add" ? true : false}
+                  //   readOnly={this.props.item == "add" ? true : false}
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
@@ -133,7 +188,7 @@ export default class AddContent extends Component {
                   name="author"
                   value={this.state.author}
                   onChange={this.handleOnChange.bind(this)}
-                //   readOnly={this.props.item == "add" ? true : false}
+                  //   readOnly={this.props.item == "add" ? true : false}
                 />
               </Form.Group>
 
@@ -151,14 +206,32 @@ export default class AddContent extends Component {
                   }}
                   onChange={this.handleOnChange.bind(this)}
                   maxLength="200"
-                //   readOnly={this.props.item == "add" ? true : false}
+                  //   readOnly={this.props.item == "add" ? true : false}
                 />
               </Form.Group>
             </Form>
           </div>
 
           <div className="col-md-4">
-            <img src="/image/KSHRD.png" alt="Profile" className="book-img" />
+            <label for="file">
+              <img
+                src={
+                  this.state.imageURL === null
+                    ? this.state.noImage
+                    : this.state.imageURL
+                }
+                alt="Article Image"
+                className="book-img"
+                onError={this.isImageError.bind(this)}
+              />
+            </label>
+            <input
+              type="file"
+              name="file"
+              id="file"
+              onChange={this.handleImage.bind(this)}
+              style={{ display: "none" }}
+            />
           </div>
         </div>
         <div className="row">

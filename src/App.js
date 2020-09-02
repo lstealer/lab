@@ -26,7 +26,7 @@ class App extends Component {
 
   componentDidMount(){
     let getPath = window.location.pathname.slice(1, 6);
-    //console.log("BACK", admin)
+    console.log("BACK", getPath)
     this.setState({
       admin: getPath,
     })
@@ -47,7 +47,7 @@ class App extends Component {
           <Route path="/signin" component={Signin} />
           <Route path="/signup" component={Signup} />
           <Route path="/profile/:id" component={Profile} />
-          <Route path="/forgetpassword" component={ForgetPassword} />
+          {/* <Route path="/forgetpassword" component={ForgetPassword} /> */}
           <Route path="/report" component={Report} />
           <Route path="/admin" component={Admin} />
         </Switch>

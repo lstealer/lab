@@ -16,6 +16,7 @@ export default class Signin extends Component {
       isSignin: false,
       jwtToken: "",
       loading: false,
+      noImage: "/image/noimage.png",
     };
   }
 
@@ -169,7 +170,7 @@ export default class Signin extends Component {
                       onChange={this.handleOnChange.bind(this)}
                     />
                   </Form.Group>
-                  <p className="text-style">ភ្លេចលេខសម្ងាត់?</p>
+                  {/* <p className="text-style">ភ្លេចលេខសម្ងាត់?</p> */}
                   <Button
                     className="rounded-pill button-style"
                     variant="primary"

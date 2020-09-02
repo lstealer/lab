@@ -143,7 +143,7 @@ const Test = ({location}) => {
     const onChange = (event) => {
         let sc1, sc2;
         event.preventDefault()
-        setIsSpecChar(true)
+       
         const typeTimer = setInterval(() => {
             setSec(sec++);
         }, 1000);
@@ -164,6 +164,7 @@ const Test = ({location}) => {
             
         } else {
             setCorrect(correct+1);
+            setIsSpecChar(true)
             console.log("Correct:",correct,"Incorrect:",incorrect)
             if (time !== 1) {
                 setTxtValue(event.target.value);

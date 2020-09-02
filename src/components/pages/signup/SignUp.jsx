@@ -49,7 +49,7 @@ export default class Signup extends Component {
     if (
       this.state.name !== "" &&
       this.state.gender !== "" &&
-      this.state.dob !== "" &&
+      this.state.dob !== null &&
       this.state.email !== "" &&
       this.state.password !== ""
     ) {
