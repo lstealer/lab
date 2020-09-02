@@ -19,7 +19,7 @@ import {
   countCorrectSymbols,
   onConfirm,
   handleScrollToElement,
-} from "./OnAction";
+} from "./onAction";
 import ContentView from "./ContentView";
 import TypingView from "./TypingView";
 import { bindActionCreators } from "redux";

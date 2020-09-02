@@ -73,7 +73,7 @@ export default class Animation extends Component {
   };
 
   render() {
-    window.requestAnimationFrame(this.canvasFrame);
+    // window.requestAnimationFrame(this.canvasFrame);
     return (
       <div>
         <canvas

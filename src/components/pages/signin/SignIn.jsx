@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
-import "./Signin.css";
+import "./signin.css";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import Swal from "sweetalert2";

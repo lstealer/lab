@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+<<<<<<< HEAD
 import Animation from "./Animation";
 import Preview from "../practice/Preview";
 import {Form} from "react-bootstrap";
@@ -11,24 +12,49 @@ import queryString from "query-string";
 import {onFocus, onPrevent} from "../practice/OnAction";
 import Animated from "./Animated";
 import Countdown from "./Countdown";
+=======
+import Animation from "../practice/Animation";
+import Speed from "../practice/Speed";
+import Preview from "../practice/Preview";
+import {Form} from "react-bootstrap";
+import TypingView from "../practice/TypingView";
+import ContentView from "../practice/ContentView";
+import SweetAlert from "react-bootstrap-sweetalert";
+import soloStyle from "./soloStyle";
+import Axios from "axios";
+import {onChange, onKeyDown2} from "./coreAction";
+import io from "socket.io-client";
+import queryString from "query-string";
+import {onFocus, onPrevent} from "../practice/onAction";
+>>>>>>> master
 
 
 let socket
 const Test = ({location}) => {
+<<<<<<< HEAD
     const [user, setUser] = useState([]);
+=======
+>>>>>>> master
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const ENDPOINT = 'localhost:5000';
     const [typingPercent, setPercentage] = useState(0);
+<<<<<<< HEAD
     let [sec, setSec] = useState(0);
     const [symbol, setSymbol] = useState("");
     const [text, setText] = useState("Loading");
+=======
+    const [sec, setSec] = useState(0);
+    const [symbol, setSymbol] = useState("");
+    const [text, setText] = useState("");
+>>>>>>> master
     const [userInput, setUserInput] = useState("");
     const [isCorrect, setIsCorrect] = useState("");
     const [oldInput, setOldInput] = useState("");
     const [finished, setFinished] = useState("");
     const [myTime, setMyTime] = useState("");
     const [color, setColor] = useState("");
+<<<<<<< HEAD
     const [isSpecChar, setIsSpecChar] = useState(true);
     const [char, setChar] = useState("");
     let [correct, setCorrect] = useState(0);
@@ -207,11 +233,72 @@ const Test = ({location}) => {
             setAccuracy((correct * 100) / (correct + incorrect))
     }
 console.log("is SPec Char==>",txtValue.length)
+=======
+    const [isSpecChar, setIsSpecChar] = useState("");
+    const [char, setChar] = useState("");
+    const [correct, setCorrect] = useState("");
+    const [specChar1, setSpecChar1] = useState("");
+    const [specChar2, setSpecChar2] = useState("");
+    const [incorrect, setIncorrect] = useState("");
+    const [accuracy, setAccuracy] = useState(0);
+    const [isAlert, setIsAlert] = useState("");
+    const [contentDetail,setContentDetail]=useState({});
+    const [start,setStarting]=useState(false);
+    const [countdown,setCountdown]=useState(30);
+    const [time,setTime]=useState(10000)
+    useEffect(() => {
+            const {name, room} = queryString.parse(location.search);
+            socket = io(ENDPOINT)
+
+            setName(name);
+            setRoom(room);
+
+            // socket.emit('join', {name, room},()=>{
+            //
+            // });
+            socket.emit('solo',name,()=>{});
+            return  ()=>{
+                socket.emit('disconnect');
+                socket.off();
+            }
+        }, [ENDPOINT, location.search])
+
+
+    useEffect(()=>{
+        socket.on('message',(message)=>{
+            console.log(message);
+        });
+    })
+    useEffect(()=>{
+        socket.on('content',(message)=>{
+            setContentDetail(message.content);
+            setText(message.content.data.khContent)
+        });
+    })
+    useEffect(()=>{
+        socket.on('countdown',(message)=>{
+            setCountdown(message.countdown);
+            console.log("countdown"+countdown);
+        });
+    });
+    useEffect(()=>{
+        socket.on('time',(message)=>{
+            setTime(message.time);
+            console.log("time"+time);
+        });
+    });
+
+    const sendMessage=(event)=>{
+        socket.emit('sendCurrent',{wpm:100,percentage:Math.round(11.5)},()=>{})
+    }
+
+>>>>>>> master
     return (
         <div>
             <div className="mode-title">
                 <h2>ប្រកួតម្នាក់ឯង</h2>
             </div>
+<<<<<<< HEAD
             <Countdown
                 countdown={countdown}
             />
@@ -224,6 +311,38 @@ console.log("is SPec Char==>",txtValue.length)
                                 typingPercent={user.percentage}
                                 wpm={user.wpm}
                             />)}
+=======
+            <div className="container my-practice">
+                <div className="row">
+                    <div className="col-md-10">
+                        <div className="row mt-2">
+                            <div
+                                className="col-md-2"
+                                style={soloStyle[1]}
+                            >
+                                <h4>
+                                    <span>Dara</span>
+                                </h4>
+                            </div>
+                            <div className="col-md-8 px-0">
+                                {/*typingPercent*/}
+                                <Animation percent={typingPercent}/>
+                            </div>
+                            <div className="col-md-2">
+                                <h4
+                                    style={soloStyle[2]}
+                                >
+                    <span>
+                      {/*  sec and symbol */}
+                        <Speed
+                            sec={sec}
+                            symbols={symbol}
+                        />
+                    </span>
+                                </h4>
+                            </div>
+                        </div>
+>>>>>>> master
                         <h2
                             style={soloStyle[3]}
                         >
@@ -248,8 +367,12 @@ console.log("is SPec Char==>",txtValue.length)
                                     onCopy={onPrevent.bind(this)}
                                     onCut={onPrevent.bind(this)}
                                     autoFocus
+<<<<<<< HEAD
                                     value={txtValue}
                                     disabled={time === 0 || countdown !== 0 ? true : false}
+=======
+                                    onInput={sendMessage.bind(this)}
+>>>>>>> master
                                     onChange={onChange.bind(this)}
                                     onKeyDown={onKeyDown2.bind(this)}
                                 ></textarea>
@@ -261,7 +384,11 @@ console.log("is SPec Char==>",txtValue.length)
                     </div>
                     <div className="col-md-2">
                         <ContentView
+<<<<<<< HEAD
                             time={time}
+=======
+                            myTime={myTime}
+>>>>>>> master
                             color={color}
                             isSpecChar={isSpecChar}
                             char={char}
@@ -271,7 +398,10 @@ console.log("is SPec Char==>",txtValue.length)
                             inCorrect={incorrect}
                             accuracy={accuracy}
                         />
+<<<<<<< HEAD
                         {/*    */}
+=======
+>>>>>>> master
                     </div>
                 </div>
 

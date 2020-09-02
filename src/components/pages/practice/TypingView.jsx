@@ -16,11 +16,12 @@ export default (props) => {
                     fontSize: "18px",
                     resize: 'none',
                   }}
-                  onContextMenu={props.onPrevent}
+
                   //onDragStart={this.onPrevent.bind(this)}
                   //onMouseDown={this.onPrevent.bind(this)}
                   //onSelect={this.onPrevent.bind(this)}
                   //unselectable="on"
+                  onContextMenu={props.onPrevent}
                   onPaste={props.onPrevent}
                   onCopy={props.onPrevent}
                   onCut={props.onPrevent}

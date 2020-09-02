@@ -5,7 +5,24 @@ export const setTimer2 = (start, props) => {
     //     }, 1000);
     // }
 }
+<<<<<<< HEAD
 
+=======
+export const onKeyDown2 = function(e){
+    if(
+        e.keyCode === 8 ||
+        e.keyCode === 46 ||
+        e.keyCode === 37 ||
+        e.keyCode === 38 ||
+        e.keyCode === 39 ||
+        e.keyCode === 40 ||
+        e.keyCode === 9
+    ) {
+        e.preventDefault();
+        window.event.preventDefault();
+    }
+}
+>>>>>>> master
 
 export const onFinish2 = (userInput) => {
     // if (userInput === text) {
