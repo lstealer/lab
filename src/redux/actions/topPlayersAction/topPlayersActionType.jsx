@@ -1,1 +1,0 @@
-export const GET_TOPPLAYERS = "GET_TOPPLAYERS"
